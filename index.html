@@ -262,5 +262,19 @@
       <div class="cmdk-list" id="cmdkList" role="listbox"></div>
     </div>
   </div>
+
+  <!-- TERMINAL -->
+  <button class="term-trigger" id="termTrigger" title="Terminal ( ` )" aria-label="Ouvrir le terminal">&gt;_</button>
+  <div class="term-panel" id="termPanel" hidden role="dialog" aria-modal="true" aria-label="Terminal">
+    <div class="term-header">
+      <span>mohamed@thiam:~$</span>
+      <button class="term-close" id="termCloseBtn" aria-label="Close">✕</button>
+    </div>
+    <div class="term-output" id="termOutput"></div>
+    <div class="term-inputline">
+      <span class="term-prompt">$</span>
+      <input type="text" id="termInput" autocomplete="off" spellcheck="false" aria-label="Terminal command input" />
+    </div>
+  </div>
 </body>
 </html>

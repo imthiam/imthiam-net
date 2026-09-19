@@ -8,6 +8,7 @@ import { initProjects } from './projects.js';
 import { initBoot } from './boot.js';
 import { initDroneSim } from './drone-sim.js';
 import { initCommandPalette } from './command-palette.js';
+import { initTerminal } from './terminal.js';
 
 const html = document.documentElement;
 let theme = localStorage.getItem('mt-theme') || 'dark';
@@ -133,6 +134,7 @@ export function initCore() {
   initBoot();
   initDroneSim();
   initCommandPalette();
+  initTerminal();
 }
 
 initCore();
