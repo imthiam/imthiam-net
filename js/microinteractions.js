@@ -145,10 +145,41 @@ function initCounters() {
   nums.forEach((el) => io.observe(el));
 }
 
+/* ── CROSSHAIR CURSOR (P2, pointer: fine only) ── */
+function initCrosshairCursor() {
+  if (reducedMotion || !finePointer) return;
+  const h = document.getElementById('crosshairH');
+  const v = document.getElementById('crosshairV');
+  const label = document.getElementById('crosshairLabel');
+  if (!h || !v || !label) return;
+
+  let shown = false;
+  document.addEventListener(
+    'pointermove',
+    (e) => {
+      if (e.pointerType !== 'mouse') return;
+      if (!shown) {
+        document.body.classList.add('crosshair-active');
+        shown = true;
+      }
+      h.style.transform = `translateY(${e.clientY}px)`;
+      v.style.transform = `translateX(${e.clientX}px)`;
+      label.style.transform = `translate(${e.clientX + 14}px, ${e.clientY + 14}px)`;
+      label.textContent = `${e.clientX}, ${e.clientY}`;
+    },
+    { passive: true }
+  );
+  document.addEventListener('pointerleave', () => {
+    document.body.classList.remove('crosshair-active');
+    shown = false;
+  });
+}
+
 export function initMicrointeractions() {
   initScramble();
   initTilt();
   initMagnetic();
   initScrollProgress();
   initCounters();
+  initCrosshairCursor();
 }

@@ -108,6 +108,18 @@
     /* SCROLL PROGRESS */
     .scroll-progress { position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 901; background: var(--accent); transform-origin: left; transform: scaleX(0); }
 
+    /* CROSSHAIR CURSOR (P2) */
+    .crosshair-line, .crosshair-label { position: fixed; top: 0; left: 0; pointer-events: none; z-index: 999; opacity: 0; transition: opacity 0.15s ease; }
+    .crosshair-h { width: 100%; height: 1px; background: var(--accent); opacity: 0; }
+    .crosshair-v { width: 1px; height: 100%; background: var(--accent); opacity: 0; }
+    .crosshair-label { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--accent); background: var(--bg2); border: 1px solid var(--border2); padding: 2px 6px; border-radius: 4px; white-space: nowrap; }
+    body.crosshair-active { cursor: none; }
+    body.crosshair-active .crosshair-h,
+    body.crosshair-active .crosshair-v,
+    body.crosshair-active .crosshair-label { opacity: 0.5; }
+    body.crosshair-active .crosshair-label { opacity: 1; }
+    body.crosshair-active a, body.crosshair-active button { cursor: none; }
+
     /* TILT + HALO (pointer: fine only) */
     .company-card, .pcard, .skill-group { transition: transform 0.15s ease, border-color 0.3s, box-shadow 0.3s; will-change: transform; position: relative; }
     .tilt-active::after { content: ''; position: absolute; inset: 0; border-radius: inherit; background: radial-gradient(220px circle at var(--halo-x,50%) var(--halo-y,50%), var(--accent-glow), transparent 70%); pointer-events: none; }
