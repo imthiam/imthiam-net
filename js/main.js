@@ -10,6 +10,7 @@ import { initDroneSim } from './drone-sim.js';
 import { initCommandPalette } from './command-palette.js';
 import { initTerminal } from './terminal.js';
 import { initMicrointeractions } from './microinteractions.js';
+import { initPerfPanel } from './perf-panel.js';
 
 const html = document.documentElement;
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -151,6 +152,7 @@ export function initCore() {
   initCommandPalette();
   initTerminal();
   initMicrointeractions();
+  initPerfPanel();
 }
 
 initCore();

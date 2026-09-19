@@ -245,8 +245,28 @@
   <footer>
     <div class="footer-name" id="footerName"></div>
     <div class="footer-copy" id="footerCopy"></div>
-    <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--text3)" id="footerTagline"></div>
+    <div class="footer-right">
+      <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--text3)" id="footerTagline"></div>
+      <button class="footer-hood-btn" id="hoodBtn" data-fr="Sous le capot" data-en="Under the hood">Sous le capot →</button>
+    </div>
   </footer>
+
+  <!-- SOUS LE CAPOT -->
+  <div class="pm-backdrop hood-backdrop" id="hoodBackdrop" hidden>
+    <div class="pm-panel" id="hoodPanel" role="dialog" aria-modal="true" aria-label="Sous le capot" tabindex="-1">
+      <button class="pm-close" id="hoodCloseBtn" aria-label="Close">✕</button>
+      <h3 class="pm-title" data-fr="Sous le capot" data-en="Under the hood">Sous le capot</h3>
+      <div class="hood-grid" id="hoodGrid"></div>
+      <div class="pm-section">
+        <div class="pm-label" data-fr="Stack" data-en="Stack">Stack</div>
+        <p data-fr="HTML, CSS et JavaScript natifs (ES modules). Zéro framework, zéro dépendance runtime, zéro étape de build. Déployé tel quel sur GitHub Pages." data-en="Native HTML, CSS and JavaScript (ES modules). Zero framework, zero runtime dependency, zero build step. Deployed as-is on GitHub Pages.">HTML, CSS et JavaScript natifs (ES modules). Zéro framework, zéro dépendance runtime, zéro étape de build. Déployé tel quel sur GitHub Pages.</p>
+      </div>
+      <div class="pm-section">
+        <div class="pm-label" data-fr="Budget" data-en="Budget">Budget</div>
+        <p data-fr="Objectif : Performance mobile ≥ 95, Accessibilité/Bonnes pratiques/SEO à 100, moins de 70 Ko de JS gzip au total." data-en="Target: mobile Performance ≥ 95, Accessibility/Best Practices/SEO at 100, under 70 KB of gzipped JS in total.">Objectif : Performance mobile ≥ 95, Accessibilité/Bonnes pratiques/SEO à 100, moins de 70 Ko de JS gzip au total.</p>
+      </div>
+    </div>
+  </div>
 
   <!-- COMMAND PALETTE -->
   <div class="cmdk-backdrop" id="cmdkBackdrop" hidden>

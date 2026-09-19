@@ -287,6 +287,13 @@
     footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 26px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; position: relative; z-index: 1; }
     .footer-name { font-family: 'Syne', sans-serif; font-weight: 700; color: var(--text); font-size: 14px; }
     .footer-copy { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text3); }
+    .footer-right { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+    .footer-hood-btn { background: none; border: none; color: var(--text3); font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.05em; cursor: pointer; padding: 0; }
+    .footer-hood-btn:hover { color: var(--accent); }
+    .hood-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 28px; }
+    .hood-row { display: flex; justify-content: space-between; gap: 8px; padding: 10px 12px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; font-family: 'DM Mono', monospace; font-size: 12px; }
+    .hood-label { color: var(--text3); }
+    .hood-value { color: var(--accent); font-variant-numeric: tabular-nums; }
 
     /* REVEAL */
     .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.65s ease, transform 0.65s ease; }
