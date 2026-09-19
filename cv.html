@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV — Mohamed Thiam</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/base.css" />
+  <style>
+    body { max-width: 780px; margin: 0 auto; padding: 60px 40px 80px; background: var(--bg); }
+    .cv-actions { display: flex; justify-content: flex-end; margin-bottom: 30px; }
+    .cv-header { border-bottom: 2px solid var(--accent); padding-bottom: 18px; margin-bottom: 28px; }
+    .cv-name { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 34px; letter-spacing: -1px; color: var(--text); }
+    .cv-tagline { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--accent); margin-top: 6px; }
+    .cv-contact { font-family: 'DM Mono', monospace; font-size: 11.5px; color: var(--text2); margin-top: 10px; }
+    .cv-section { margin-bottom: 26px; break-inside: avoid; }
+    .cv-section-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 6px; margin-bottom: 14px; }
+    .cv-p { font-size: 13px; color: var(--text2); line-height: 1.6; margin-bottom: 8px; }
+    .cv-item { margin-bottom: 14px; break-inside: avoid; }
+    .cv-item-head { display: flex; justify-content: space-between; gap: 10px; }
+    .cv-item-role { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 14px; color: var(--text); }
+    .cv-item-date { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text3); white-space: nowrap; }
+    .cv-item-org { font-family: 'DM Mono', monospace; font-size: 11.5px; color: var(--accent); margin: 2px 0 4px; }
+    .cv-item-desc { font-size: 12.5px; color: var(--text2); line-height: 1.55; }
+    .cv-skill-row { display: flex; gap: 10px; font-size: 12px; margin-bottom: 6px; line-height: 1.5; }
+    .cv-skill-title { font-family: 'DM Mono', monospace; font-weight: 500; color: var(--text); min-width: 140px; flex-shrink: 0; }
+    .cv-skill-list { color: var(--text2); }
+    .cv-project { font-size: 12.5px; color: var(--text2); line-height: 1.6; margin-bottom: 6px; }
+    .cv-project-title { font-family: 'Syne', sans-serif; font-weight: 700; color: var(--text); }
+    .cv-footer { margin-top: 30px; font-family: 'DM Mono', monospace; font-size: 10.5px; color: var(--text3); text-align: center; }
+
+    @media print {
+      @page { margin: 14mm; }
+      body { padding: 0; max-width: none; }
+      .no-print { display: none !important; }
+      .cv-section { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cv-actions no-print">
+    <button class="btn-primary" id="cvPrintBtn">Télécharger le CV (PDF) →</button>
+  </div>
+
+  <header class="cv-header">
+    <div class="cv-name" id="cvName"></div>
+    <div class="cv-tagline" id="cvTagline"></div>
+    <div class="cv-contact" id="cvContact"></div>
+  </header>
+
+  <section class="cv-section">
+    <div class="cv-section-title">Profil</div>
+    <div id="cvAbout"></div>
+  </section>
+
+  <section class="cv-section">
+    <div class="cv-section-title">Expérience</div>
+    <div id="cvExperience"></div>
+  </section>
+
+  <section class="cv-section">
+    <div class="cv-section-title">Formation</div>
+    <div id="cvEducation"></div>
+  </section>
+
+  <section class="cv-section">
+    <div class="cv-section-title">Compétences</div>
+    <div id="cvSkills"></div>
+  </section>
+
+  <section class="cv-section">
+    <div class="cv-section-title">Projets</div>
+    <div id="cvProjects"></div>
+  </section>
+
+  <footer class="cv-footer" id="cvFooter"></footer>
+
+  <script type="module" src="js/cv.js"></script>
+</body>
+</html>
