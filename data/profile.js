@@ -36,7 +36,7 @@ export const profile = {
     },
     stats: [
       { value: '8', suffix: '', label: { fr: 'Projets livrés', en: 'Projects shipped' } },
-      { value: '2', suffix: '', label: { fr: 'Entreprises', en: 'Companies' } },
+      { value: '3', suffix: '', label: { fr: 'Entreprises', en: 'Companies' } },
       { value: '5', suffix: '+', label: { fr: "Ans d'expérience", en: 'Years building' } },
       { value: '4', suffix: '', label: { fr: 'Pays', en: 'Countries' } },
     ],
@@ -74,6 +74,17 @@ export const profile = {
       },
       tags: ['HealthTech', 'Télémédecine', 'Afrique', 'Mobile'],
       linkLabel: 'futurastech.com →',
+    },
+    {
+      role: { fr: 'Co-fondateur & CTO', en: 'Co-founder & CTO' },
+      name: 'Matezer',
+      link: 'https://www.matezer.com/',
+      desc: {
+        fr: 'Marketplace de colocation à New York contre les arnaques locatives : matching par compatibilité et vérification de sécurité, sans intermédiaires ni courtiers. Actuellement en pré-lancement (liste d\'attente).',
+        en: 'NYC roommate marketplace fighting rental scams: compatibility-based matching and safety verification, no brokers. Currently in pre-launch (waitlist).',
+      },
+      tags: ['PropTech', 'Marketplace', 'NYC', 'Trust & Safety'],
+      linkLabel: 'matezer.com →',
     },
   ],
 
@@ -602,8 +613,8 @@ export const profile = {
   footer: {
     copy: { fr: '© 2026 · Ingénieur & Entrepreneur · Paris & Dakar', en: '© 2026 · Engineer & Entrepreneur · Paris & Dakar' },
     tagline: {
-      fr: 'HTML, CSS, JS. Zéro dépendance, zéro tracker.',
-      en: 'HTML, CSS, JS. Zero dependencies, zero trackers.',
+      fr: 'Zéro dépendance, zéro tracker.',
+      en: 'Zero dependencies, zero trackers.',
     },
   },
 };
