@@ -51,7 +51,7 @@ function transferredBytes() {
 }
 
 function formatKB(bytes) {
-  return bytes > 0 ? (bytes / 1024).toFixed(1) + ' KB' : '—';
+  return bytes > 0 ? (bytes / 1024).toFixed(1) + ' KB' : '-';
 }
 
 function row(label, value) {
@@ -100,9 +100,9 @@ function refresh() {
   grid.appendChild(fpsRow);
   startFPS(fpsRow.querySelector('.hood-value'));
 
-  grid.appendChild(row('LCP', lcp !== null ? Math.round(lcp) + ' ms' : '—'));
+  grid.appendChild(row('LCP', lcp !== null ? Math.round(lcp) + ' ms' : '-'));
   grid.appendChild(row('CLS', cls.toFixed(3)));
-  grid.appendChild(row('INP', inp !== null ? Math.round(inp) + ' ms' : '—'));
+  grid.appendChild(row('INP', inp !== null ? Math.round(inp) + ' ms' : '-'));
   grid.appendChild(row(lang === 'fr' ? 'Poids transféré' : 'Transferred weight', formatKB(transferredBytes())));
   grid.appendChild(row(lang === 'fr' ? 'Nœuds DOM' : 'DOM nodes', String(document.getElementsByTagName('*').length)));
 }

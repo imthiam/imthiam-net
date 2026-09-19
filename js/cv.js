@@ -19,7 +19,7 @@ function el(tag, className, html) {
 }
 
 function renderHeader() {
-  document.title = `CV — ${profile.identity.name}`;
+  document.title = `CV · ${profile.identity.name}`;
   document.getElementById('cvName').textContent = profile.identity.name;
   document.getElementById('cvTagline').textContent = `${tr(profile.identity.tagline)} · ${profile.identity.taglineSuffix}`;
   const l = profile.links;

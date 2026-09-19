@@ -9,5 +9,5 @@ Location: Paris, France / Dakar, Senegal
 /* SITE */
 
 Standards: HTML5, CSS3, ES Modules
-Components: none — hand-written, zero runtime dependency
+Components: none, hand-written, zero runtime dependency
 Software: a text editor

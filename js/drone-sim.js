@@ -46,6 +46,7 @@ export function initDroneSim() {
 
   const style = getComputedStyle(document.documentElement);
   const accent = style.getPropertyValue('--accent').trim() || '#00d4ff';
+  const waypointColor = style.getPropertyValue('--text2').trim() || '#8b95a3';
 
   let width = 0;
   let height = 0;
@@ -165,7 +166,7 @@ export function initDroneSim() {
     const barW = 2;
     const widths = [1, 2, 1, 3, 1, 2, 1, 1, 2];
     let bx = -14;
-    ctx.fillStyle = active ? accent : 'rgba(255,255,255,0.4)';
+    ctx.fillStyle = active ? accent : waypointColor;
     widths.forEach((w, i) => {
       if (i % 2 === 0) ctx.fillRect(bx, -8, barW * w, 16);
       bx += barW * w + 1;

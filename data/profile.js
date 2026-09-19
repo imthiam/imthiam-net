@@ -3,7 +3,7 @@
 // js/terminal.js et cv.html (CV imprimable). Ne pas dupliquer ce contenu ailleurs.
 
 export const CONFIG = {
-  // Disponibilité affichée dans le hero — bascule simple, sans date en dur.
+  // Disponibilité affichée dans le hero : bascule simple, sans date en dur.
   // Pour la désactiver : available: false (voir identity.badgeUnavailable pour le texte de repli).
   available: true,
   // Confidentialité du stage de fin d'études : ne jamais révéler le nom de l'entreprise
@@ -31,12 +31,12 @@ export const profile = {
     },
     taglineSuffix: 'CEO · CTO · Builder',
     heroDesc: {
-      fr: "Je construis des <em>systèmes intelligents</em> — de l'IA embarquée sur drones et microcontrôleurs aux plateformes full-stack. CEO d'<em>AskiaBot</em>, CTO chez <em>Futuras Tech Solutions</em>. Entre Paris et Dakar.",
-      en: "I build <em>intelligent systems</em> — from embedded AI on drones and microcontrollers to full-stack platforms. CEO of <em>AskiaBot</em>, CTO at <em>Futuras Tech Solutions</em>. Between Paris and Dakar.",
+      fr: "Je construis des <em>systèmes intelligents</em> : de l'IA embarquée sur drones et microcontrôleurs aux plateformes full-stack. CEO d'<em>AskiaBot</em>, CTO chez <em>Futuras Tech Solutions</em>. Entre Paris et Dakar.",
+      en: "I build <em>intelligent systems</em>: from embedded AI on drones and microcontrollers to full-stack platforms. CEO of <em>AskiaBot</em>, CTO at <em>Futuras Tech Solutions</em>. Between Paris and Dakar.",
     },
     stats: [
       { value: '8', suffix: '', label: { fr: 'Projets livrés', en: 'Projects shipped' } },
-      { value: '3', suffix: '', label: { fr: 'Entreprises', en: 'Companies' } },
+      { value: '2', suffix: '', label: { fr: 'Entreprises', en: 'Companies' } },
       { value: '5', suffix: '+', label: { fr: "Ans d'expérience", en: 'Years building' } },
       { value: '4', suffix: '', label: { fr: 'Pays', en: 'Countries' } },
     ],
@@ -58,8 +58,8 @@ export const profile = {
       name: 'AskiaBot',
       link: 'https://www.askiabot.com/en',
       desc: {
-        fr: "Plateforme SaaS d'assistants IA personnalisés — no-code, multi-canal (web widget, WhatsApp), gestion de base de connaissances, RAG, analytics temps réel. Plans de €29 à custom enterprise.",
-        en: 'SaaS platform for custom AI assistants — no-code, multi-channel (web widget, WhatsApp), knowledge base management, RAG, real-time analytics. Plans from €29 to custom enterprise.',
+        fr: "Plateforme SaaS d'assistants IA personnalisés : no-code, multi-canal (web widget, WhatsApp), gestion de base de connaissances, RAG, analytics temps réel. Plans de €29 à custom enterprise.",
+        en: 'SaaS platform for custom AI assistants: no-code, multi-channel (web widget, WhatsApp), knowledge base management, RAG, real-time analytics. Plans from €29 to custom enterprise.',
       },
       tags: ['AI / RAG', 'SaaS', 'WhatsApp Bot', 'No-code'],
       linkLabel: 'askiabot.com →',
@@ -69,22 +69,11 @@ export const profile = {
       name: 'Futuras Tech',
       link: 'https://www.futurastech.com/',
       desc: {
-        fr: 'Agence tech spécialisée dans le développement d\'applications et sites web sur mesure. Produit phare : DocLinkers, première plateforme de télémédecine au Sénégal — consultations à distance, données médicales sécurisées.',
-        en: "Tech firm specializing in custom app and web development. Flagship: DocLinkers, Senegal's first telemedicine platform — remote consultations, secure medical data management.",
+        fr: 'Agence tech spécialisée dans le développement d\'applications et sites web sur mesure. Produit phare : DocLinkers, première plateforme de télémédecine au Sénégal, consultations à distance, données médicales sécurisées.',
+        en: "Tech firm specializing in custom app and web development. Flagship: DocLinkers, Senegal's first telemedicine platform, remote consultations, secure medical data management.",
       },
       tags: ['HealthTech', 'Télémédecine', 'Afrique', 'Mobile'],
       linkLabel: 'futurastech.com →',
-    },
-    {
-      role: { fr: 'Fondateur', en: 'Founder' },
-      name: 'Quinzaine Group',
-      link: null,
-      desc: {
-        fr: "Studio produit derrière plusieurs applications : Shareey (marketplace sénégalaise), ZenPayMe (escrow de paiement pour freelancers), Trac Plus (vision IA temps réel), Arosa'je (AgriTech).",
-        en: 'Product studio behind multiple apps: Shareey (Senegalese marketplace), ZenPayMe (freelancer payment escrow), Trac Plus (real-time AI vision), Arosa\'je (AgriTech).',
-      },
-      tags: ['E-commerce', 'Fintech', 'Computer Vision', 'AgriTech'],
-      linkLabel: null,
     },
   ],
 
@@ -95,12 +84,12 @@ export const profile = {
     },
     paragraphs: [
       {
-        fr: "Ingénieur diplômé de l'<strong>ESIEA Paris</strong> (promotion 2026), spécialisation Systèmes Embarqués et Autonomes, avec une mineure en ingénierie d'affaires en dernière année. J'ai découvert la programmation en C en terminale, dans un cours d'informatique : le point de départ de ce parcours. Mon vrai apprentissage s'est fait en construisant des produits réels utilisés par de vraies personnes.",
-        en: "Engineering graduate of <strong>ESIEA Paris</strong> (class of 2026), Embedded & Autonomous Systems specialization, with a business engineering minor in the final year. I discovered C programming in my last year of high school, in a computer science class: the starting point of this path. My real education happened building actual products used by real people.",
+        fr: "Ingénieur diplômé de l'<strong>ESIEA Paris</strong> (promotion 2026), spécialisation Systèmes Embarqués et Autonomes, avec une mineure en ingénierie d'affaires en dernière année. J'ai découvert le langage C en terminale, durant mes cours d'informatique : le point de départ de ce parcours. Mon vrai apprentissage s'est fait en construisant des produits réels utilisés par de vraies personnes.",
+        en: "Engineering graduate of <strong>ESIEA Paris</strong> (class of 2026), Embedded & Autonomous Systems specialization, with a business engineering minor in the final year. I discovered the C language in my last year of high school, during my computer science classes: the starting point of this path. My real education happened building actual products used by real people.",
       },
       {
-        fr: "De la navigation autonome de drones à la conception d'IPs UART sur FPGA, en passant par la conversion d'un véhicule électrique autonome et le déploiement de la première plateforme de télémédecine au Sénégal — j'opère à l'intersection de l'<strong>ingénierie embarquée profonde</strong> et de l'<strong>entrepreneuriat produit</strong>.",
-        en: "From autonomous drone navigation to FPGA UART IP design, autonomous EV conversion, and deploying Senegal's first telemedicine platform — I operate at the intersection of <strong>deep embedded engineering</strong> and <strong>product entrepreneurship</strong>.",
+        fr: "De la navigation autonome de drones à la conception d'IPs UART sur FPGA, en passant par la conversion d'un véhicule électrique autonome et le déploiement de la première plateforme de télémédecine au Sénégal, j'opère à l'intersection de l'<strong>ingénierie embarquée profonde</strong> et de l'<strong>entrepreneuriat produit</strong>.",
+        en: "From autonomous drone navigation to FPGA UART IP design, autonomous EV conversion, and deploying Senegal's first telemedicine platform, I operate at the intersection of <strong>deep embedded engineering</strong> and <strong>product entrepreneurship</strong>.",
       },
       {
         fr: 'Parcours international : <strong>France, Sénégal, Finlande, Lituanie</strong>. Cette perspective façonne chaque projet que je mène.',
@@ -111,8 +100,8 @@ export const profile = {
         en: 'I am looking for a <strong>permanent position</strong> in embedded systems, embedded AI, or edge/cloud computing. Also open to collaborations and high-impact client projects, particularly in AI, embedded systems and tech for Africa.',
       },
       {
-        fr: "<strong>Au-delà du code</strong> : je joue au football, je m'intéresse à la fabrication physique et à l'industrie, et j'ai vécu et étudié dans quatre pays : France, Sénégal, Finlande, Lituanie.",
-        en: "<strong>Beyond code</strong>: I play football, I'm interested in physical manufacturing and industry, and I've lived and studied in four countries: France, Senegal, Finland, Lithuania.",
+        fr: "<strong>Au-delà du code</strong> : je joue au football et aux jeux vidéo, je m'intéresse à la fabrication physique et à l'industrie, et j'ai vécu et étudié dans quatre pays : France, Sénégal, Finlande, Lituanie.",
+        en: "<strong>Beyond code</strong>: I play football and video games, I'm interested in physical manufacturing and industry, and I've lived and studied in four countries: France, Senegal, Finland, Lithuania.",
       },
     ],
     locations: [
@@ -235,8 +224,8 @@ export const profile = {
         { label: { fr: 'Pilotage startup (OKR)', en: 'Startup management (OKR)' } },
       ],
       context: {
-        fr: 'Utilisé sur : AskiaBot, Futuras Tech Solutions, Quinzaine Group.',
-        en: 'Used on: AskiaBot, Futuras Tech Solutions, Quinzaine Group.',
+        fr: 'Utilisé sur : AskiaBot, Futuras Tech Solutions.',
+        en: 'Used on: AskiaBot, Futuras Tech Solutions.',
       },
     },
     {
@@ -320,8 +309,8 @@ export const profile = {
       gradient: 'rgba(0,212,255,0.1)',
       title: 'DocLinkers',
       desc: {
-        fr: 'Première plateforme de télémédecine au Sénégal — consultations à distance, gestion sécurisée des données médicales, urgences. Produit réel, impact réel en Afrique de l\'Ouest.',
-        en: "Senegal's first telemedicine platform — remote consultations, secure medical data, emergency care. Real product, real impact in West Africa.",
+        fr: 'Première plateforme de télémédecine au Sénégal, consultations à distance, gestion sécurisée des données médicales, urgences. Produit réel, impact réel en Afrique de l\'Ouest.',
+        en: "Senegal's first telemedicine platform, remote consultations, secure medical data, emergency care. Real product, real impact in West Africa.",
       },
       stack: ['Flutter', 'Firebase', 'Python'],
       detail: {
@@ -373,8 +362,8 @@ export const profile = {
       gradient: 'rgba(240,180,41,0.1)',
       title: { fr: 'IP UART sur FPGA', en: 'FPGA UART IP' },
       desc: {
-        fr: 'Implémentation VHDL complète d\'une IP UART sur FPGA — liaison série PC/FPGA, contrôle servomoteur, acquisition télémètre ultrason en temps réel. Système combinant communication, contrôle et acquisition.',
-        en: 'Full VHDL UART IP on FPGA — serial PC/FPGA comms, servo motor control, real-time ultrasonic sensor acquisition. Combined communication, control and acquisition system.',
+        fr: 'Implémentation VHDL complète d\'une IP UART sur FPGA : liaison série PC/FPGA, contrôle servomoteur, acquisition télémètre ultrason en temps réel. Système combinant communication, contrôle et acquisition.',
+        en: 'Full VHDL UART IP on FPGA: serial PC/FPGA comms, servo motor control, real-time ultrasonic sensor acquisition. Combined communication, control and acquisition system.',
       },
       stack: ['VHDL', 'FPGA', 'UART'],
       detail: {
@@ -407,10 +396,10 @@ export const profile = {
       stack: ['Flutter', 'Firebase', 'Payments'],
       detail: {
         context: {
-          fr: 'Produit du studio Quinzaine Group : plateforme d\'escrow pour sécuriser les paiements entre clients et freelancers.',
-          en: 'Quinzaine Group studio product: escrow platform to secure payments between clients and freelancers.',
+          fr: 'Projet personnel : plateforme d\'escrow pour sécuriser les paiements entre clients et freelancers.',
+          en: 'Personal project: escrow platform to secure payments between clients and freelancers.',
         },
-        role: { fr: 'Fondateur, Quinzaine Group.', en: 'Founder, Quinzaine Group.' },
+        role: { fr: 'Fondateur.', en: 'Founder.' },
         challenges: {
           fr: 'Concevoir un mécanisme d\'escrow où les fonds ne sont reversés qu\'après validation du travail via démo.',
           en: 'Designing an escrow mechanism that only releases funds after the work is validated via a demo.',
@@ -426,16 +415,16 @@ export const profile = {
       gradient: 'rgba(0,229,160,0.08)',
       title: 'Trac Plus',
       desc: {
-        fr: 'App de vision IA temps réel — détection faciale, reconnaissance d\'objets et de texte, répondeur intelligent, détecteur de tumeur cérébrale (CNN en cours). Live ou sur image.',
-        en: 'Real-time AI vision app — facial detection, object & text recognition, intelligent responder, brain tumor detector (CNN in progress). Live or from image.',
+        fr: 'App de vision IA temps réel : détection faciale, reconnaissance d\'objets et de texte, répondeur intelligent, détecteur de tumeur cérébrale (CNN en cours). Live ou sur image.',
+        en: 'Real-time AI vision app: facial detection, object & text recognition, intelligent responder, brain tumor detector (CNN in progress). Live or from image.',
       },
       stack: ['Computer Vision', 'Flutter', 'TensorFlow'],
       detail: {
         context: {
-          fr: 'Produit du studio Quinzaine Group : application de vision IA temps réel, live ou sur image.',
-          en: 'Quinzaine Group studio product: real-time AI vision app, live or from an image.',
+          fr: 'Projet personnel : application de vision IA temps réel, live ou sur image.',
+          en: 'Personal project: real-time AI vision app, live or from an image.',
         },
-        role: { fr: 'Fondateur, Quinzaine Group.', en: 'Founder, Quinzaine Group.' },
+        role: { fr: 'Fondateur.', en: 'Founder.' },
         challenges: {
           fr: 'Combiner détection faciale, reconnaissance d\'objets et de texte et un détecteur de tumeur cérébrale (CNN en cours) dans une même application temps réel.',
           en: 'Combining facial detection, object/text recognition and a brain tumor detector (CNN in progress) in a single real-time app.',
@@ -478,7 +467,7 @@ export const profile = {
       category: 'experience',
       current: true,
       date: { fr: 'Mars–Sept. 2026', en: 'Mar–Sept 2026' },
-      role: { fr: 'Stagiaire Ingénieur IoT — Stage de fin d\'études', en: 'IoT Engineering Intern — Final Internship' },
+      role: { fr: 'Stagiaire Ingénieur IoT · Stage de fin d\'études', en: 'IoT Engineering Intern · Final Internship' },
       org: { fr: 'Île-de-France, France', en: 'Île-de-France, France' },
       desc: {
         fr: 'Navigation autonome d\'un drone pour l\'inventaire automatisé par lecture de codes-barres. Développement logiciel & intégration matérielle, simulation de navigation via AirSim et ArduPilot Mission Planner, programmation embarquée Python pour pilotage, détection et lecture de codes-barres. Participation à la conception hardware et à l\'architecture système.',
@@ -492,7 +481,7 @@ export const profile = {
       id: 'cap-ve',
       category: 'experience',
       date: { fr: 'Sept. 2025–Jan. 2026', en: 'Sept 2025–Jan 2026' },
-      role: { fr: 'CAP Projet — Véhicule Électrique Autonome', en: 'CAP Project — Autonomous EV' },
+      role: { fr: 'CAP Projet · Véhicule Électrique Autonome', en: 'CAP Project · Autonomous EV' },
       org: 'ESIEA Paris',
       desc: {
         fr: 'Refonte complète d\'un véhicule thermique en électrique autonome : motorisation électrique, électronique embarquée, capteurs, architecture logicielle autonome (OpenPilot), design intérieur et intégration des systèmes de contrôle/communication.',
@@ -516,7 +505,7 @@ export const profile = {
       id: 'centria',
       category: 'international',
       date: { fr: 'Jan.–Juin 2024', en: 'Jan–Jun 2024' },
-      role: { fr: 'Semestre d\'échange — Centria UAS', en: 'Exchange Semester — Centria UAS' },
+      role: { fr: 'Semestre d\'échange · Centria UAS', en: 'Exchange Semester · Centria UAS' },
       org: 'Centria UAS · Kokkola, Finlande',
       desc: {
         fr: 'Cinq mois de semestre à l\'étranger en systèmes embarqués. C\'est là que j\'ai découvert l\'IoT et les systèmes embarqués.',
@@ -528,7 +517,7 @@ export const profile = {
       id: 'ktu-bip',
       category: 'international',
       date: { fr: '2024', en: '2024' },
-      role: { fr: 'Blended Intensive Program — KTU', en: 'Blended Intensive Program — KTU' },
+      role: { fr: 'Blended Intensive Program · KTU', en: 'Blended Intensive Program · KTU' },
       org: 'KTU · Kaunas, Lituanie',
       desc: {
         fr: 'Développement d\'un jeu vidéo 3D en équipe internationale pluridisciplinaire.',
@@ -592,8 +581,8 @@ export const profile = {
       role: { fr: 'Baccalauréat scientifique', en: 'Scientific Baccalaureate' },
       org: { fr: 'Sénégal', en: 'Senegal' },
       desc: {
-        fr: 'J\'ai découvert la programmation en C en terminale, dans un cours d\'informatique : le point de départ de ce parcours.',
-        en: 'I discovered C programming in my last year of high school, in a computer science class: the starting point of this path.',
+        fr: 'J\'ai découvert le langage C en terminale, durant mes cours d\'informatique : le point de départ de ce parcours.',
+        en: 'I discovered the C language in my last year of high school, during my computer science classes: the starting point of this path.',
       },
       tags: [],
     },
@@ -605,16 +594,16 @@ export const profile = {
       en: "Let's build<br><em>something together.</em>",
     },
     text: {
-      fr: "Ouvert aux <strong style='color:var(--text)'>rôles techniques senior</strong>, projets clients à fort impact et partenariats stratégiques — en particulier en IA, systèmes embarqués et tech pour l'Afrique. <strong style='color:var(--text)'>CDI recherché.</strong>",
-      en: "Open to <strong style='color:var(--text)'>senior technical roles</strong>, high-impact client projects and strategic partnerships — particularly in AI, embedded systems and tech for Africa. <strong style='color:var(--text)'>Seeking a permanent position.</strong>",
+      fr: "Ouvert aux <strong style='color:var(--text)'>rôles techniques senior</strong>, projets clients à fort impact et partenariats stratégiques, en particulier en IA, systèmes embarqués et tech pour l'Afrique. <strong style='color:var(--text)'>CDI recherché.</strong>",
+      en: "Open to <strong style='color:var(--text)'>senior technical roles</strong>, high-impact client projects and strategic partnerships, particularly in AI, embedded systems and tech for Africa. <strong style='color:var(--text)'>Seeking a permanent position.</strong>",
     },
   },
 
   footer: {
     copy: { fr: '© 2026 · Ingénieur & Entrepreneur · Paris & Dakar', en: '© 2026 · Engineer & Entrepreneur · Paris & Dakar' },
     tagline: {
-      fr: 'Codé à la main. HTML, CSS, JS. Zéro dépendance, zéro tracker.',
-      en: 'Hand-coded. HTML, CSS, JS. Zero dependencies, zero trackers.',
+      fr: 'HTML, CSS, JS. Zéro dépendance, zéro tracker.',
+      en: 'HTML, CSS, JS. Zero dependencies, zero trackers.',
     },
   },
 };

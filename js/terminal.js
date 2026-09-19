@@ -61,14 +61,14 @@ const COMMANDS = {
     profile.timeline
       .filter((e) => e.category !== 'formation')
       .forEach((e) => {
-        println(`${L(e.date)}  ${L(e.role)}  —  ${L(e.org)}`);
+        println(`${L(e.date)}  ${L(e.role)}  ·  ${L(e.org)}`);
       });
   },
   education() {
     profile.timeline
       .filter((e) => e.category === 'formation')
       .forEach((e) => {
-        println(`${L(e.date)}  ${L(e.role)}  —  ${L(e.org)}`);
+        println(`${L(e.date)}  ${L(e.role)}  ·  ${L(e.org)}`);
       });
   },
   contact() {

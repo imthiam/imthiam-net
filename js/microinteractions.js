@@ -9,9 +9,15 @@ const finePointer = window.matchMedia('(pointer: fine)').matches;
 /* ── SCRAMBLE TEXT ── */
 const SCRAMBLE_CHARS = '01ABCDEFGHIJKLMNOPQRSTUVWXYZ#$%&';
 
+function plainTextWithBreaks(el) {
+  const clone = el.cloneNode(true);
+  clone.querySelectorAll('br').forEach((br) => br.replaceWith(' '));
+  return clone.textContent;
+}
+
 function scrambleElement(el) {
   const original = el.innerHTML;
-  const plain = el.textContent;
+  const plain = plainTextWithBreaks(el);
   const len = plain.length;
   const totalFrames = Math.min(28, Math.max(10, len));
   let frame = 0;
@@ -21,7 +27,11 @@ function scrambleElement(el) {
     const revealCount = Math.floor((frame / totalFrames) * len);
     let out = '';
     for (let i = 0; i < len; i++) {
-      out += i < revealCount ? plain[i] : SCRAMBLE_CHARS[(Math.random() * SCRAMBLE_CHARS.length) | 0];
+      if (plain[i] === ' ') {
+        out += ' ';
+      } else {
+        out += i < revealCount ? plain[i] : SCRAMBLE_CHARS[(Math.random() * SCRAMBLE_CHARS.length) | 0];
+      }
     }
     el.textContent = out;
     if (frame < totalFrames) {
