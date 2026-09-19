@@ -117,7 +117,7 @@ export const profile = {
     ],
     locations: [
       { fr: 'Paris, France (principal)', en: 'Paris, France (primary)' },
-      { fr: 'Dakar, Sénégal (racines familiales, quartier Sacré-Cœur)', en: 'Dakar, Senegal (family roots, Sacré-Cœur neighborhood)' },
+      { fr: 'Dakar, Sénégal', en: 'Dakar, Senegal' },
       { fr: 'Ouvert à la mobilité internationale', en: 'Open to international relocation' },
     ],
     photo: {

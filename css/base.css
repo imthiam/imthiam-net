@@ -359,7 +359,7 @@
       .section-pad { padding: 70px 0; }
       .about-grid { grid-template-columns: 1fr; gap: 40px; }
       .about-photo-block { order: -1; }
-      .photo-frame { max-width: 240px; aspect-ratio: 1/1; }
+      .photo-frame { width: 70vw; height: 90vw; max-width: none; aspect-ratio: unset; margin: 0 auto; }
       .skills-grid { grid-template-columns: 1fr 1fr; }
       .contact-grid { grid-template-columns: 1fr; gap: 40px; }
       footer { padding: 20px; justify-content: center; text-align: center; }
