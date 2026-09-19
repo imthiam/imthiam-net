@@ -9,8 +9,10 @@ import { initBoot } from './boot.js';
 import { initDroneSim } from './drone-sim.js';
 import { initCommandPalette } from './command-palette.js';
 import { initTerminal } from './terminal.js';
+import { initMicrointeractions } from './microinteractions.js';
 
 const html = document.documentElement;
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 let theme = localStorage.getItem('mt-theme') || 'dark';
 let lang = localStorage.getItem('mt-lang') || 'fr';
 
@@ -40,6 +42,19 @@ function setTheme(t) {
 }
 function toggleTheme() {
   setTheme(theme === 'dark' ? 'light' : 'dark');
+}
+
+function toggleThemeAtEvent(e) {
+  const next = theme === 'dark' ? 'light' : 'dark';
+  if (e) {
+    html.style.setProperty('--vt-x', e.clientX + 'px');
+    html.style.setProperty('--vt-y', e.clientY + 'px');
+  }
+  if (!reducedMotion && document.startViewTransition) {
+    document.startViewTransition(() => setTheme(next));
+  } else {
+    setTheme(next);
+  }
 }
 
 function setLang(l) {
@@ -111,8 +126,8 @@ function initContactForm() {
 }
 
 function initNav() {
-  document.getElementById('themeBtn')?.addEventListener('click', toggleTheme);
-  document.getElementById('mThemeBtn')?.addEventListener('click', toggleTheme);
+  document.getElementById('themeBtn')?.addEventListener('click', toggleThemeAtEvent);
+  document.getElementById('mThemeBtn')?.addEventListener('click', toggleThemeAtEvent);
   document.getElementById('langBtn')?.addEventListener('click', toggleLang);
   document.getElementById('mLangBtn')?.addEventListener('click', toggleLang);
   document.getElementById('hamburgerBtn')?.addEventListener('click', openMMenu);
@@ -135,6 +150,7 @@ export function initCore() {
   initDroneSim();
   initCommandPalette();
   initTerminal();
+  initMicrointeractions();
 }
 
 initCore();

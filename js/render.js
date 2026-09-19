@@ -81,7 +81,7 @@ export function renderIdentity() {
       const wrap = document.createElement('div');
       const num = document.createElement('div');
       num.className = 'stat-num';
-      num.innerHTML = `${s.value}${s.suffix ? `<span>${s.suffix}</span>` : ''}`;
+      num.innerHTML = `<span class="stat-num-value" data-value="${s.value}">${s.value}</span>${s.suffix ? `<span>${s.suffix}</span>` : ''}`;
       const label = bilingual('div', s.label, 'stat-label');
       wrap.appendChild(num);
       wrap.appendChild(label);
