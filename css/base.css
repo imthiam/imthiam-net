@@ -3,14 +3,14 @@
     [data-theme="dark"] {
       --bg: #080c10; --bg2: #0d1117; --bg3: #131922; --surface: #161d27;
       --border: rgba(255,255,255,0.07); --border2: rgba(255,255,255,0.12);
-      --text: #e8edf2; --text2: #8b95a3; --text3: #4a5568;
+      --text: #e8edf2; --text2: #8b95a3; --text3: #7a8699;
       --accent: #00d4ff; --accent-dim: rgba(0,212,255,0.08); --accent-glow: rgba(0,212,255,0.15);
       --shadow: rgba(0,0,0,0.5); --noise: 0.35;
     }
     [data-theme="light"] {
       --bg: #f4f7fb; --bg2: #eaeff6; --bg3: #ffffff; --surface: #ffffff;
       --border: rgba(0,0,0,0.08); --border2: rgba(0,0,0,0.14);
-      --text: #0f1923; --text2: #4a5a70; --text3: #94a3b8;
+      --text: #0f1923; --text2: #4a5a70; --text3: #5a6577;
       --accent: #0088bb; --accent-dim: rgba(0,136,187,0.08); --accent-glow: rgba(0,136,187,0.12);
       --shadow: rgba(0,0,0,0.08); --noise: 0.07;
     }
@@ -29,9 +29,13 @@
     .blob-2 { width: 500px; height: 500px; background: rgba(0,229,160,0.03); bottom: 10%; left: -150px; }
 
     /* BOOT SEQUENCE */
-    .boot-screen { position: fixed; inset: 0; z-index: 1001; background: var(--bg); display: flex; flex-direction: column; justify-content: center; padding: 10vw; cursor: pointer; transition: opacity 0.4s ease; }
+    .boot-screen { position: fixed; inset: 0; z-index: 1001; background: var(--bg); display: flex; flex-direction: column; justify-content: center; padding: 10vw; cursor: pointer; transition: transform 0.4s ease, filter 0.4s ease; }
     .boot-screen[hidden] { display: none; }
-    .boot-log { font-family: 'DM Mono', monospace; font-size: 13px; line-height: 1.9; color: var(--accent); white-space: pre-wrap; }
+    .boot-screen.boot-exit { transform: scale(1.04); filter: blur(6px); }
+    @media (prefers-reduced-motion: reduce) {
+      .boot-screen { transition: none; }
+    }
+    .boot-log { font-family: 'DM Mono', monospace; font-size: 13px; line-height: 1.9; color: var(--text); white-space: pre-wrap; }
     .boot-hint { margin-top: 28px; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.08em; }
 
     /* NAV */

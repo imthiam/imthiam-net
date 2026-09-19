@@ -38,11 +38,11 @@ export function initBoot() {
     screen.removeEventListener('click', finish);
     window.removeEventListener('keydown', finish);
     sessionStorage.setItem(BOOT_KEY, '1');
-    screen.style.opacity = '0';
+    screen.classList.add('boot-exit');
     document.body.style.overflow = '';
     setTimeout(() => {
       screen.hidden = true;
-      screen.style.opacity = '';
+      screen.classList.remove('boot-exit');
     }, FADE_MS);
   }
 
