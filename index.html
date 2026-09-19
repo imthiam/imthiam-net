@@ -61,6 +61,7 @@
       <li><a href="#experience" data-fr="Parcours" data-en="Journey">Parcours</a></li>
     </ul>
     <div class="nav-right">
+      <button class="icon-btn" id="cmdkBtn" title="Cmd/Ctrl+K">⌘K</button>
       <button class="icon-btn" id="themeBtn" title="Theme">🌙</button>
       <button class="lang-btn" id="langBtn">EN</button>
       <a href="#contact" class="nav-cta" data-fr="Contact" data-en="Contact">Contact</a>
@@ -244,5 +245,22 @@
     <div class="footer-copy" id="footerCopy"></div>
     <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--text3)" id="footerTagline"></div>
   </footer>
+
+  <!-- COMMAND PALETTE -->
+  <div class="cmdk-backdrop" id="cmdkBackdrop" hidden>
+    <div class="cmdk-panel" role="dialog" aria-modal="true" aria-label="Command palette">
+      <input
+        type="text"
+        class="cmdk-input"
+        id="cmdkInput"
+        autocomplete="off"
+        spellcheck="false"
+        data-ph-fr="Tapez une commande ou recherchez…"
+        data-ph-en="Type a command or search…"
+        placeholder="Tapez une commande ou recherchez…"
+      />
+      <div class="cmdk-list" id="cmdkList" role="listbox"></div>
+    </div>
+  </div>
 </body>
 </html>

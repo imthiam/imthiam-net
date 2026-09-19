@@ -185,3 +185,7 @@ export function initProjects() {
   initProjectFilter();
   initModal();
 }
+
+export function openProjectBySlug(slug) {
+  openProject(slug);
+}

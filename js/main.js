@@ -7,6 +7,7 @@ import { initTimeline } from './timeline.js';
 import { initProjects } from './projects.js';
 import { initBoot } from './boot.js';
 import { initDroneSim } from './drone-sim.js';
+import { initCommandPalette } from './command-palette.js';
 
 const html = document.documentElement;
 let theme = localStorage.getItem('mt-theme') || 'dark';
@@ -14,6 +15,15 @@ let lang = localStorage.getItem('mt-lang') || 'fr';
 
 export function getLang() {
   return lang;
+}
+export function getTheme() {
+  return theme;
+}
+export function setThemeExternal(t) {
+  setTheme(t);
+}
+export function setLangExternal(l) {
+  setLang(l);
 }
 
 function setTheme(t) {
@@ -122,6 +132,7 @@ export function initCore() {
   initProjects();
   initBoot();
   initDroneSim();
+  initCommandPalette();
 }
 
 initCore();
