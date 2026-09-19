@@ -43,12 +43,10 @@ export function renderIdentity() {
 
   const badge = document.getElementById('heroBadge');
   if (badge) {
-    const { fr, en } = tr(id.badge);
-    const availFr = CONFIG.available ? fr : fr;
-    const availEn = CONFIG.available ? en : en;
-    badge.setAttribute('data-fr', availFr);
-    badge.setAttribute('data-en', availEn);
-    badge.innerHTML = availFr;
+    const { fr, en } = tr(CONFIG.available ? id.badge : id.badgeUnavailable);
+    badge.setAttribute('data-fr', fr);
+    badge.setAttribute('data-en', en);
+    badge.innerHTML = fr;
   }
 
   const h1 = document.getElementById('heroTitle');
@@ -185,6 +183,9 @@ export function renderSkills() {
       pills.appendChild(tag(p.label, p.featured ? 'pill f' : 'pill'));
     });
     card.appendChild(pills);
+    if (group.context) {
+      card.appendChild(bilingual('div', group.context, 'sg-context'));
+    }
     grid.appendChild(card);
   });
 }

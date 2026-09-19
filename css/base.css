@@ -129,6 +129,7 @@
     [data-theme="light"] .pill { background: rgba(0,0,0,0.03); }
     .pill:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
     .pill.f { border-color: rgba(0,180,220,0.3); color: var(--accent); background: var(--accent-dim); }
+    .sg-context { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); font-size: 11px; color: var(--text3); font-family: 'DM Mono', monospace; line-height: 1.6; }
 
     /* PROJECTS */
     #projects { background: var(--bg); }

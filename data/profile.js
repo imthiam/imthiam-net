@@ -4,6 +4,7 @@
 
 export const CONFIG = {
   // Disponibilité affichée dans le hero — bascule simple, sans date en dur.
+  // Pour la désactiver : available: false (voir identity.badgeUnavailable pour le texte de repli).
   available: true,
   // Confidentialité du stage de fin d'études : ne jamais révéler le nom de l'entreprise
   // tant que cette valeur est à false (voir data.timeline, entrée "internship-2026").
@@ -18,17 +19,24 @@ export const profile = {
       fr: 'Disponible pour collaborations à fort impact',
       en: 'Available for high-impact collaborations',
     },
+    badgeUnavailable: {
+      fr: 'Actuellement engagé',
+      en: 'Currently committed',
+    },
     titleLine1: 'Mohamed',
     titleLine2: 'Thiam.',
-    tagline: { fr: 'Ingénieur Systèmes Embarqués & IA', en: 'Embedded Systems & AI Engineer' },
+    tagline: {
+      fr: 'Ingénieur Systèmes Embarqués et Autonomes, spécialisé IA embarquée',
+      en: 'Embedded & Autonomous Systems Engineer, specialized in embedded AI',
+    },
     taglineSuffix: 'CEO · CTO · Builder',
     heroDesc: {
-      fr: "Je construis des <em>systèmes intelligents</em> — de l'IA embarquée sur drones et microcontrôleurs aux plateformes full-stack. CEO d'<em>AskiaBot</em>, CTO chez <em>Futuras Tech Solutions</em>. Entre la France et le Sénégal.",
-      en: "I build <em>intelligent systems</em> — from embedded AI on drones and microcontrollers to full-stack platforms. CEO of <em>AskiaBot</em>, CTO at <em>Futuras Tech Solutions</em>. Between France and Senegal.",
+      fr: "Je construis des <em>systèmes intelligents</em> — de l'IA embarquée sur drones et microcontrôleurs aux plateformes full-stack. CEO d'<em>AskiaBot</em>, CTO chez <em>Futuras Tech Solutions</em>. Entre Paris et Dakar.",
+      en: "I build <em>intelligent systems</em> — from embedded AI on drones and microcontrollers to full-stack platforms. CEO of <em>AskiaBot</em>, CTO at <em>Futuras Tech Solutions</em>. Between Paris and Dakar.",
     },
     stats: [
-      { value: '10', suffix: '+', label: { fr: 'Projets livrés', en: 'Projects shipped' } },
-      { value: '2', suffix: '', label: { fr: 'Entreprises', en: 'Companies' } },
+      { value: '8', suffix: '', label: { fr: 'Projets livrés', en: 'Projects shipped' } },
+      { value: '3', suffix: '', label: { fr: 'Entreprises', en: 'Companies' } },
       { value: '5', suffix: '+', label: { fr: "Ans d'expérience", en: 'Years building' } },
       { value: '4', suffix: '', label: { fr: 'Pays', en: 'Countries' } },
     ],
@@ -87,8 +95,8 @@ export const profile = {
     },
     paragraphs: [
       {
-        fr: "Étudiant ingénieur en 5e année à l'<strong>ESIEA Paris</strong>, spécialisation Systèmes Embarqués et Autonomes — diplôme juin 2026. Mon vrai apprentissage s'est fait en construisant des produits réels utilisés par de vraies personnes.",
-        en: 'Final-year engineering student at <strong>ESIEA Paris</strong>, Embedded & Autonomous Systems — graduating June 2026. My real education happened building actual products used by real people.',
+        fr: "Ingénieur diplômé de l'<strong>ESIEA Paris</strong> (promotion 2026), spécialisation Systèmes Embarqués et Autonomes, avec une mineure en ingénierie d'affaires en dernière année. J'ai découvert la programmation en C en terminale, dans un cours d'informatique : le point de départ de ce parcours. Mon vrai apprentissage s'est fait en construisant des produits réels utilisés par de vraies personnes.",
+        en: "Engineering graduate of <strong>ESIEA Paris</strong> (class of 2026), Embedded & Autonomous Systems specialization, with a business engineering minor in the final year. I discovered C programming in my last year of high school, in a computer science class: the starting point of this path. My real education happened building actual products used by real people.",
       },
       {
         fr: "De la navigation autonome de drones à la conception d'IPs UART sur FPGA, en passant par la conversion d'un véhicule électrique autonome et le déploiement de la première plateforme de télémédecine au Sénégal — j'opère à l'intersection de l'<strong>ingénierie embarquée profonde</strong> et de l'<strong>entrepreneuriat produit</strong>.",
@@ -99,13 +107,17 @@ export const profile = {
         en: 'International background: <strong>France, Senegal, Finland, Lithuania</strong>. That perspective shapes every project I lead.',
       },
       {
-        fr: 'En recherche d\'un <strong>CDI à partir de septembre 2026</strong> en systèmes embarqués, IA embarquée ou edge/cloud computing.',
-        en: 'Seeking a <strong>permanent position from September 2026</strong> in embedded systems, embedded AI, or edge/cloud computing.',
+        fr: 'Je recherche un <strong>CDI</strong> en systèmes embarqués, IA embarquée ou edge/cloud computing. Ouvert aussi aux collaborations et projets clients à fort impact, en particulier en IA, embarqué et tech pour l\'Afrique.',
+        en: 'I am looking for a <strong>permanent position</strong> in embedded systems, embedded AI, or edge/cloud computing. Also open to collaborations and high-impact client projects, particularly in AI, embedded systems and tech for Africa.',
+      },
+      {
+        fr: "<strong>Au-delà du code</strong> : je joue au football, je m'intéresse à la fabrication physique et à l'industrie, et j'ai vécu et étudié dans quatre pays : France, Sénégal, Finlande, Lituanie.",
+        en: "<strong>Beyond code</strong>: I play football, I'm interested in physical manufacturing and industry, and I've lived and studied in four countries: France, Senegal, Finland, Lithuania.",
       },
     ],
     locations: [
       { fr: 'Paris, France (principal)', en: 'Paris, France (primary)' },
-      { fr: 'Dakar, Sénégal (remote / déplacements)', en: 'Dakar, Senegal (remote / travel)' },
+      { fr: 'Dakar, Sénégal (racines familiales, quartier Sacré-Cœur)', en: 'Dakar, Senegal (family roots, Sacré-Cœur neighborhood)' },
       { fr: 'Ouvert à la mobilité internationale', en: 'Open to international relocation' },
     ],
     photo: {
@@ -128,11 +140,18 @@ export const profile = {
         { label: 'Arduino', featured: true },
         { label: 'FPGA', featured: true },
         { label: 'VHDL' },
+        { label: 'Jetson Orin Nano' },
         { label: 'FreeRTOS' },
         { label: 'Zephyr' },
         { label: 'CAN / UART / SPI' },
+        { label: 'IoT / MQTT' },
+        { label: 'BLE' },
         { label: 'Simulink' },
       ],
+      context: {
+        fr: "Utilisé sur : drone d'inventaire, conversion VE autonome, IP UART sur FPGA, lunettes intelligentes.",
+        en: 'Used on: inventory drone, autonomous EV conversion, FPGA UART IP, smart glasses.',
+      },
     },
     {
       icon: '🚁',
@@ -143,8 +162,13 @@ export const profile = {
         { label: 'Mission Planner', featured: true },
         { label: 'OpenPilot' },
         { label: { fr: 'Navigation autonome', en: 'Autonomous navigation' } },
-        { label: 'Barcode detection' },
+        { label: { fr: 'Navigation intérieure sans GPS', en: 'Indoor GPS-denied navigation' } },
+        { label: { fr: 'Détection de codes-barres', en: 'Barcode detection' } },
       ],
+      context: {
+        fr: 'Utilisé sur : drone d\'inventaire autonome (stage de fin d\'études).',
+        en: 'Used on: autonomous inventory drone (final internship).',
+      },
     },
     {
       icon: '🤖',
@@ -157,7 +181,13 @@ export const profile = {
         { label: 'AI APIs' },
         { label: 'RAG' },
         { label: { fr: "Classification d'images", en: 'Image classification' } },
+        { label: { fr: 'Agents IA', en: 'AI agents' } },
+        { label: 'Claude Code' },
       ],
+      context: {
+        fr: 'Utilisé sur : surveillance IA des ruches, Trac Plus, AskiaBot (RAG).',
+        en: 'Used on: beehive AI monitoring, Trac Plus, AskiaBot (RAG).',
+      },
     },
     {
       icon: '📱',
@@ -166,11 +196,17 @@ export const profile = {
         { label: 'Flutter', featured: true },
         { label: 'Python', featured: true },
         { label: 'Flask / FastAPI', featured: true },
+        { label: 'Next.js' },
+        { label: 'TypeScript' },
         { label: 'C / C++' },
         { label: 'Java' },
         { label: 'Firebase' },
         { label: 'REST APIs' },
       ],
+      context: {
+        fr: 'Utilisé sur : DocLinkers, ZenPayMe, surveillance IA des ruches, Trac Plus.',
+        en: 'Used on: DocLinkers, ZenPayMe, beehive AI monitoring, Trac Plus.',
+      },
     },
     {
       icon: '☁️',
@@ -180,10 +216,28 @@ export const profile = {
         { label: 'GitLab CI/CD', featured: true },
         { label: 'Portainer', featured: true },
         { label: 'AWS' },
-        { label: 'MQTT' },
+        { label: 'GitHub Actions' },
         { label: 'PostgreSQL' },
         { label: 'Neo4j' },
       ],
+      context: {
+        fr: 'Utilisé sur : infrastructure CI/CD du projet ruches, AskiaBot.',
+        en: 'Used on: beehive project CI/CD infrastructure, AskiaBot.',
+      },
+    },
+    {
+      icon: '💼',
+      title: { fr: 'Produit & Business', en: 'Product & Business' },
+      pills: [
+        { label: { fr: "Ingénierie d'affaires", en: 'Business engineering' }, featured: true },
+        { label: { fr: 'Pricing & offres', en: 'Pricing & offers' } },
+        { label: { fr: 'Prospection B2B', en: 'B2B outreach' } },
+        { label: { fr: 'Pilotage startup (OKR)', en: 'Startup management (OKR)' } },
+      ],
+      context: {
+        fr: 'Utilisé sur : AskiaBot, Futuras Tech Solutions, Quinzaine Group.',
+        en: 'Used on: AskiaBot, Futuras Tech Solutions, Quinzaine Group.',
+      },
     },
     {
       icon: '🌍',
@@ -194,6 +248,10 @@ export const profile = {
         { label: { fr: 'Espagnol (B1)', en: 'Spanish (B1)' } },
         { label: { fr: 'Finnois (A1)', en: 'Finnish (A1)' } },
       ],
+      context: {
+        fr: 'À l\'aise dans les contextes français et sénégalais.',
+        en: 'Comfortable in both French and Senegalese contexts.',
+      },
     },
   ],
 
@@ -380,13 +438,16 @@ export const profile = {
       en: "Let's build<br><em>something together.</em>",
     },
     text: {
-      fr: "Ouvert aux <strong style='color:var(--text)'>rôles techniques senior</strong>, projets clients à fort impact et partenariats stratégiques — en particulier en IA, systèmes embarqués et tech pour l'Afrique. <strong style='color:var(--text)'>CDI recherché à partir de septembre 2026.</strong>",
-      en: "Open to <strong style='color:var(--text)'>senior technical roles</strong>, high-impact client projects and strategic partnerships — particularly in AI, embedded systems and tech for Africa. <strong style='color:var(--text)'>Seeking permanent position from September 2026.</strong>",
+      fr: "Ouvert aux <strong style='color:var(--text)'>rôles techniques senior</strong>, projets clients à fort impact et partenariats stratégiques — en particulier en IA, systèmes embarqués et tech pour l'Afrique. <strong style='color:var(--text)'>CDI recherché.</strong>",
+      en: "Open to <strong style='color:var(--text)'>senior technical roles</strong>, high-impact client projects and strategic partnerships — particularly in AI, embedded systems and tech for Africa. <strong style='color:var(--text)'>Seeking a permanent position.</strong>",
     },
   },
 
   footer: {
     copy: { fr: '© 2026 · Ingénieur & Entrepreneur · Paris & Dakar', en: '© 2026 · Engineer & Entrepreneur · Paris & Dakar' },
-    tagline: { fr: 'Conçu avec précision.', en: 'Built with precision.' },
+    tagline: {
+      fr: 'Codé à la main. HTML, CSS, JS. Zéro dépendance, zéro tracker.',
+      en: 'Hand-coded. HTML, CSS, JS. Zero dependencies, zero trackers.',
+    },
   },
 };
