@@ -22,6 +22,12 @@
     .blob-1 { width: 600px; height: 600px; background: rgba(0,212,255,0.04); top: -200px; right: -100px; }
     .blob-2 { width: 500px; height: 500px; background: rgba(0,229,160,0.03); bottom: 10%; left: -150px; }
 
+    /* BOOT SEQUENCE */
+    .boot-screen { position: fixed; inset: 0; z-index: 1001; background: var(--bg); display: flex; flex-direction: column; justify-content: center; padding: 10vw; cursor: pointer; transition: opacity 0.4s ease; }
+    .boot-screen[hidden] { display: none; }
+    .boot-log { font-family: 'DM Mono', monospace; font-size: 13px; line-height: 1.9; color: var(--accent); white-space: pre-wrap; }
+    .boot-hint { margin-top: 28px; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.08em; }
+
     /* NAV */
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 900; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 64px; background: rgba(8,12,16,0.88); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); transition: background 0.3s, border-color 0.3s; }
     [data-theme="light"] nav { background: rgba(244,247,251,0.92); }
