@@ -6,6 +6,7 @@ import { profile } from '../data/profile.js';
 import { initTimeline } from './timeline.js';
 import { initProjects } from './projects.js';
 import { initBoot } from './boot.js';
+import { initDroneSim } from './drone-sim.js';
 
 const html = document.documentElement;
 let theme = localStorage.getItem('mt-theme') || 'dark';
@@ -120,6 +121,7 @@ export function initCore() {
   initTimeline();
   initProjects();
   initBoot();
+  initDroneSim();
 }
 
 initCore();

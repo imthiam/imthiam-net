@@ -81,6 +81,19 @@
       </div>
       <div class="hero-stats" id="heroStats"></div>
     </div>
+    <div class="drone-sim-wrap reveal" id="droneSimWrap">
+      <canvas id="droneCanvas" class="drone-canvas" role="img" aria-label="Simulation animée d'un drone d'inventaire suivant des waypoints et scannant des marqueurs, pilotée par un contrôleur PID"></canvas>
+      <div class="drone-telemetry" id="droneTelemetry" aria-hidden="true">
+        <div class="dt-row"><span class="dt-label">POS</span><span id="dtPos">0.0, 0.0</span></div>
+        <div class="dt-row"><span class="dt-label">VEL</span><span id="dtVel">0</span></div>
+        <div class="dt-row"><span class="dt-label">ERR</span><span id="dtErr">0</span></div>
+        <div class="dt-row"><span class="dt-label">STATE</span><span id="dtState">TRANSIT</span></div>
+        <div class="dt-row"><span class="dt-label">ITEMS</span><span id="dtItems">0</span></div>
+      </div>
+      <div class="drone-sim-hint" aria-hidden="true" data-fr="Cliquez pour ajouter un waypoint" data-en="Click to add a waypoint">Cliquez pour ajouter un waypoint</div>
+      <p class="sr-only" id="droneSimSummary" data-fr="Simulation décorative d'un drone autonome suivant une boucle de points de passage avec un contrôleur PID et scannant des marqueurs d'inventaire. N'apporte aucune information supplémentaire au contenu de la page." data-en="Decorative simulation of an autonomous drone following a loop of waypoints with a PID controller, scanning inventory markers. Adds no information beyond the page's content.">Simulation décorative d'un drone autonome suivant une boucle de points de passage avec un contrôleur PID et scannant des marqueurs d'inventaire. N'apporte aucune information supplémentaire au contenu de la page.</p>
+      <p class="drone-sim-static-note" id="droneSimStaticNote" hidden data-fr="Illustration statique : simulation de drone désactivée (préférence de mouvement réduit détectée)." data-en="Static illustration: drone simulation disabled (reduced-motion preference detected).">Illustration statique : simulation de drone désactivée (préférence de mouvement réduit détectée).</p>
+    </div>
   </section>
 
   <!-- STRIP -->
