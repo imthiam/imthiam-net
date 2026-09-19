@@ -144,6 +144,15 @@
       <div class="section-label" data-fr="Expertise" data-en="Expertise">Expertise</div>
       <h2 data-fr="Ce que je <em>maîtrise</em>" data-en="What I <em>master</em>">Ce que je <em>maîtrise</em></h2>
       <div class="skills-grid reveal" id="skillsGrid"></div>
+
+      <div class="skills-graph-wrap reveal" id="skillsGraphWrap">
+        <div class="section-label" data-fr="Graphe des compétences" data-en="Skills graph">Graphe des compétences</div>
+        <p class="skills-graph-hint" data-fr="Survolez ou naviguez au clavier pour voir quels projets utilisent quelle compétence." data-en="Hover or tab through to see which projects use which skill.">Survolez ou naviguez au clavier pour voir quels projets utilisent quelle compétence.</p>
+        <div class="skills-graph-canvas">
+          <svg id="skillsGraphEdges" class="sg-edges" aria-hidden="true"></svg>
+          <div id="skillsGraphNodes" class="sg-nodes"></div>
+        </div>
+      </div>
     </div>
   </section>
 
