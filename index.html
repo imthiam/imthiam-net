@@ -146,6 +146,32 @@
     </div>
   </section>
 
+  <!-- PROJECT DETAIL MODAL -->
+  <div class="pm-backdrop" id="projectModalBackdrop" hidden>
+    <div class="pm-panel" id="projectModalPanel" role="dialog" aria-modal="true" aria-labelledby="pmTitle" tabindex="-1">
+      <button class="pm-close" id="pmCloseBtn" aria-label="Close">✕</button>
+      <div class="pm-type" id="pmType"></div>
+      <h3 class="pm-title" id="pmTitle"></h3>
+      <div class="pm-stack" id="pmStack"></div>
+      <div class="pm-section">
+        <div class="pm-label" data-fr="Contexte" data-en="Context">Contexte</div>
+        <p id="pmContext"></p>
+      </div>
+      <div class="pm-section">
+        <div class="pm-label" data-fr="Mon rôle" data-en="My role">Mon rôle</div>
+        <p id="pmRole"></p>
+      </div>
+      <div class="pm-section">
+        <div class="pm-label" data-fr="Défis techniques" data-en="Technical challenges">Défis techniques</div>
+        <p id="pmChallenges"></p>
+      </div>
+      <div class="pm-section">
+        <div class="pm-label" data-fr="Résultat" data-en="Result">Résultat</div>
+        <p id="pmResult"></p>
+      </div>
+    </div>
+  </div>
+
   <!-- EXPERIENCE -->
   <section id="experience" class="section-pad">
     <div class="container">

@@ -268,6 +268,21 @@ export const profile = {
         en: 'Autonomous barcode navigation for automated warehouse inventory. AirSim + ArduPilot simulation, embedded Python programming, full hardware integration & system architecture.',
       },
       stack: ['ArduPilot', 'AirSim', 'Python', 'Computer Vision'],
+      detail: {
+        context: {
+          fr: "Stage de fin d'études (mars–septembre 2026) chez un éditeur de logiciels de gestion logistique et d'entrepôt (nom non communiqué). Système de drone d'intérieur autonome pour l'inventaire d'entrepôt, à l'interface de l'embarqué, de la robotique, de l'IA et du logiciel.",
+          en: "Final internship (March–September 2026) at a warehouse and logistics management software company (name withheld). Autonomous indoor drone system for warehouse inventory, at the intersection of embedded systems, robotics, AI and software.",
+        },
+        role: {
+          fr: "Navigation et stabilisation en intérieur sans GPS, appairage BLE vers Wi-Fi et configuration réseau, logique d'inventaire et persistance des données, intégration avec le backend et le moteur 3D pour l'exécution des plans de vol, simulation de navigation (AirSim, ArduPilot Mission Planner), détection et lecture de codes-barres en Python.",
+          en: "Indoor GPS-denied navigation and stabilization, BLE-to-Wi-Fi pairing and network configuration, inventory logic and data persistence, backend and 3D engine integration for flight plan execution, navigation simulation (AirSim, ArduPilot Mission Planner), Python barcode detection and reading.",
+        },
+        challenges: {
+          fr: "Navigation autonome en intérieur sans signal GPS, en travaillant à l'interface de plusieurs disciplines : embarqué, robotique, IA et logiciel.",
+          en: "Autonomous indoor navigation without GPS, working at the intersection of several disciplines: embedded, robotics, AI and software.",
+        },
+        result: { fr: 'TODO : résultat chiffré à confirmer.', en: 'TODO: measurable outcome to confirm.' },
+      },
     },
     {
       slug: 'conversion-ve-autonome',
@@ -281,6 +296,21 @@ export const profile = {
         en: 'Complete combustion-to-electric conversion: electric drivetrain, embedded electronics, sensors, autonomous software (OpenPilot), interior design, control & communication systems.',
       },
       stack: ['OpenPilot', 'Embedded', 'EV', 'C++'],
+      detail: {
+        context: {
+          fr: 'CAP Projet ESIEA (septembre 2025–janvier 2026) : conversion complète d\'un véhicule thermique en véhicule électrique autonome.',
+          en: 'ESIEA CAP Project (September 2025–January 2026): full conversion of a combustion vehicle into an autonomous electric vehicle.',
+        },
+        role: {
+          fr: 'Motorisation électrique, électronique embarquée, capteurs, architecture logicielle autonome (OpenPilot), design intérieur et systèmes de contrôle/communication.',
+          en: 'Electric drivetrain, embedded electronics, sensors, autonomous software architecture (OpenPilot), interior design, control and communication systems.',
+        },
+        challenges: {
+          fr: "Intégrer des systèmes de contrôle et de communication autonomes sur un véhicule converti, à l'échelle d'un projet d'équipe.",
+          en: 'Integrating autonomous control and communication systems on a converted vehicle, at team-project scale.',
+        },
+        result: { fr: 'TODO : résultat chiffré à confirmer.', en: 'TODO: measurable outcome to confirm.' },
+      },
     },
     {
       slug: 'doclinkers',
@@ -294,6 +324,18 @@ export const profile = {
         en: "Senegal's first telemedicine platform — remote consultations, secure medical data, emergency care. Real product, real impact in West Africa.",
       },
       stack: ['Flutter', 'Firebase', 'Python'],
+      detail: {
+        context: {
+          fr: 'Produit phare de Futuras Tech Solutions : première plateforme de télémédecine au Sénégal, consultations à distance et gestion sécurisée des données médicales.',
+          en: "Futuras Tech Solutions' flagship product: Senegal's first telemedicine platform, remote consultations and secure medical data management.",
+        },
+        role: { fr: 'Co-fondateur et CTO, Futuras Tech Solutions.', en: 'Co-founder and CTO, Futuras Tech Solutions.' },
+        challenges: {
+          fr: 'Sécuriser des données médicales sensibles et couvrir des cas d\'usage d\'urgence dans un contexte de premier déploiement du genre au Sénégal.',
+          en: "Securing sensitive medical data and covering emergency-care use cases, as the first deployment of its kind in Senegal.",
+        },
+        result: { fr: 'TODO : résultat chiffré à confirmer.', en: 'TODO: measurable outcome to confirm.' },
+      },
     },
     {
       slug: 'ruches-ia',
@@ -307,6 +349,21 @@ export const profile = {
         en: 'CNN model + Flask API for varroa detection on images. Flutter mobile app for beekeepers. Cross-platform desktop app. Full Docker/GitLab/Portainer CI/CD infrastructure.',
       },
       stack: ['TensorFlow', 'CNN', 'Flask', 'Flutter', 'Docker'],
+      detail: {
+        context: {
+          fr: 'Stage Ingénieur IA & Fullstack au laboratoire LDR de l\'ESIEA (avril–juillet 2025) : solution complète de surveillance intelligente des ruches.',
+          en: "AI & Fullstack Engineering internship at ESIEA's LDR lab (April–July 2025): full intelligent beehive monitoring solution.",
+        },
+        role: {
+          fr: 'Intégration d\'un modèle CNN via API Flask, infrastructure CI/CD (Docker, GitLab, Portainer), application mobile Flutter pour apiculteurs, application desktop cross-platform (Win/Mac/Linux), API REST MySQL live.',
+          en: 'CNN model integration via Flask API, CI/CD infrastructure (Docker, GitLab, Portainer), Flutter mobile app for beekeepers, cross-platform desktop app (Win/Mac/Linux), live MySQL REST API.',
+        },
+        challenges: {
+          fr: 'Détecter les varroas sur images et livrer une infrastructure CI/CD complète en parallèle des applications mobile et desktop.',
+          en: 'Detecting varroa mites on images while delivering a full CI/CD infrastructure alongside the mobile and desktop apps.',
+        },
+        result: { fr: 'TODO : résultat chiffré à confirmer.', en: 'TODO: measurable outcome to confirm.' },
+      },
     },
     {
       slug: 'uart-fpga',
@@ -320,6 +377,21 @@ export const profile = {
         en: 'Full VHDL UART IP on FPGA — serial PC/FPGA comms, servo motor control, real-time ultrasonic sensor acquisition. Combined communication, control and acquisition system.',
       },
       stack: ['VHDL', 'FPGA', 'UART'],
+      detail: {
+        context: {
+          fr: 'Projet ESIEA : implémentation VHDL complète d\'une IP UART sur FPGA.',
+          en: 'ESIEA project: full VHDL UART IP implementation on FPGA.',
+        },
+        role: {
+          fr: 'Liaison série PC/FPGA, contrôle servomoteur, acquisition télémètre ultrason en temps réel.',
+          en: 'Serial PC/FPGA link, servo motor control, real-time ultrasonic sensor acquisition.',
+        },
+        challenges: {
+          fr: 'Combiner communication série, contrôle et acquisition temps réel dans un seul système FPGA.',
+          en: 'Combining serial communication, control and real-time acquisition in a single FPGA system.',
+        },
+        result: { fr: 'TODO : résultat chiffré à confirmer.', en: 'TODO: measurable outcome to confirm.' },
+      },
     },
     {
       slug: 'zenpayme',
@@ -333,6 +405,18 @@ export const profile = {
         en: 'Secure escrow payment platform for freelancers. Client pays into escrow, work is validated via demo, funds automatically released to the provider.',
       },
       stack: ['Flutter', 'Firebase', 'Payments'],
+      detail: {
+        context: {
+          fr: 'Produit du studio Quinzaine Group : plateforme d\'escrow pour sécuriser les paiements entre clients et freelancers.',
+          en: 'Quinzaine Group studio product: escrow platform to secure payments between clients and freelancers.',
+        },
+        role: { fr: 'Fondateur, Quinzaine Group.', en: 'Founder, Quinzaine Group.' },
+        challenges: {
+          fr: 'Concevoir un mécanisme d\'escrow où les fonds ne sont reversés qu\'après validation du travail via démo.',
+          en: 'Designing an escrow mechanism that only releases funds after the work is validated via a demo.',
+        },
+        result: { fr: 'TODO : résultat chiffré à confirmer.', en: 'TODO: measurable outcome to confirm.' },
+      },
     },
     {
       slug: 'trac-plus',
@@ -346,6 +430,18 @@ export const profile = {
         en: 'Real-time AI vision app — facial detection, object & text recognition, intelligent responder, brain tumor detector (CNN in progress). Live or from image.',
       },
       stack: ['Computer Vision', 'Flutter', 'TensorFlow'],
+      detail: {
+        context: {
+          fr: 'Produit du studio Quinzaine Group : application de vision IA temps réel, live ou sur image.',
+          en: 'Quinzaine Group studio product: real-time AI vision app, live or from an image.',
+        },
+        role: { fr: 'Fondateur, Quinzaine Group.', en: 'Founder, Quinzaine Group.' },
+        challenges: {
+          fr: 'Combiner détection faciale, reconnaissance d\'objets et de texte et un détecteur de tumeur cérébrale (CNN en cours) dans une même application temps réel.',
+          en: 'Combining facial detection, object/text recognition and a brain tumor detector (CNN in progress) in a single real-time app.',
+        },
+        result: { fr: 'TODO : résultat chiffré à confirmer.', en: 'TODO: measurable outcome to confirm.' },
+      },
     },
     {
       slug: 'lunettes-intelligentes',
@@ -359,6 +455,18 @@ export const profile = {
         en: 'Wearable for visually impaired. Sensor array detecting obstacles, vibration/audio alerts for improved daily autonomy.',
       },
       stack: ['Embedded', 'Sensors', 'Hardware Design'],
+      detail: {
+        context: {
+          fr: 'Dispositif portable pour malvoyants, pensé pour améliorer l\'autonomie quotidienne.',
+          en: 'Wearable device for visually impaired users, designed to improve daily autonomy.',
+        },
+        role: { fr: 'Conception et développement.', en: 'Design and development.' },
+        challenges: {
+          fr: 'Détecter les obstacles via un réseau de capteurs et restituer l\'information de façon fiable par vibrations et signaux audio.',
+          en: 'Detecting obstacles via a sensor array and reliably conveying that information through vibration and audio signals.',
+        },
+        result: { fr: 'TODO : résultat chiffré à confirmer.', en: 'TODO: measurable outcome to confirm.' },
+      },
     },
   ],
 

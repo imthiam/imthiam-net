@@ -4,6 +4,7 @@
 import { renderAll } from './render.js';
 import { profile } from '../data/profile.js';
 import { initTimeline } from './timeline.js';
+import { initProjects } from './projects.js';
 
 const html = document.documentElement;
 let theme = localStorage.getItem('mt-theme') || 'dark';
@@ -78,19 +79,6 @@ function initReveal() {
   els.forEach((el) => io.observe(el));
 }
 
-function initProjectFilter() {
-  document.querySelectorAll('.ftab').forEach((tab) => {
-    tab.addEventListener('click', () => {
-      document.querySelectorAll('.ftab').forEach((t) => t.classList.remove('active'));
-      tab.classList.add('active');
-      const f = tab.dataset.filter;
-      document.querySelectorAll('.pcard').forEach((c) => {
-        c.style.display = f === 'all' || (c.dataset.cat || '').includes(f) ? '' : 'none';
-      });
-    });
-  });
-}
-
 function initContactForm() {
   const sendBtn = document.getElementById('sendBtn');
   if (!sendBtn) return;
@@ -120,9 +108,6 @@ function initNav() {
 }
 
 export function initCore() {
-  html.classList.remove('no-js');
-  html.classList.add('js');
-
   renderAll();
 
   setTheme(theme);
@@ -130,9 +115,9 @@ export function initCore() {
 
   initNav();
   initReveal();
-  initProjectFilter();
   initContactForm();
   initTimeline();
+  initProjects();
 }
 
 initCore();
