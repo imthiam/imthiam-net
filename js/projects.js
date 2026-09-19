@@ -2,6 +2,7 @@
 // routée par hash partageable (#/projects/<slug>), lue depuis data/profile.js.
 
 import { profile } from '../data/profile.js';
+import { initUartLab } from './uart-lab.js';
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 let lastFocused = null;
@@ -100,6 +101,16 @@ function fillModal(project) {
   document.getElementById('pmRole').textContent = tr(project.detail.role)[lang];
   document.getElementById('pmChallenges').textContent = tr(project.detail.challenges)[lang];
   document.getElementById('pmResult').textContent = tr(project.detail.result)[lang];
+
+  const uartSection = document.getElementById('pmUartLabSection');
+  if (uartSection) {
+    if (project.slug === 'uart-fpga') {
+      uartSection.hidden = false;
+      initUartLab(uartSection.querySelector('.uart-lab'));
+    } else {
+      uartSection.hidden = true;
+    }
+  }
 }
 
 function openProject(slug, { pushHash = true } = {}) {
@@ -108,10 +119,10 @@ function openProject(slug, { pushHash = true } = {}) {
   const panel = document.getElementById('projectModalPanel');
   if (!project || !project.detail || !backdrop || !panel) return;
 
-  fillModal(project);
   lastFocused = document.activeElement;
   backdrop.hidden = false;
   document.body.style.overflow = 'hidden';
+  fillModal(project);
   requestAnimationFrame(() => backdrop.classList.add('open'));
   panel.focus();
 

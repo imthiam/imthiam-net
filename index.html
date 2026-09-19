@@ -190,6 +190,28 @@
         <div class="pm-label" data-fr="Résultat" data-en="Result">Résultat</div>
         <p id="pmResult"></p>
       </div>
+      <div class="pm-section" id="pmUartLabSection" hidden>
+        <div class="pm-label" data-fr="Labo UART" data-en="UART Lab">Labo UART</div>
+        <div class="uart-lab">
+          <div class="uart-controls">
+            <label class="uart-field">
+              <span data-fr="Caractère" data-en="Character">Caractère</span>
+              <input type="text" id="uartCharInput" maxlength="1" value="A" autocomplete="off" />
+            </label>
+            <label class="uart-field">
+              <span>Baud</span>
+              <select id="uartBaudSelect">
+                <option value="300">300</option>
+                <option value="1200">1200</option>
+                <option value="9600" selected>9600</option>
+                <option value="115200">115200</option>
+              </select>
+            </label>
+          </div>
+          <canvas id="uartCanvas" class="uart-canvas" role="img" aria-label="Trame UART 8N1 animée"></canvas>
+          <div class="uart-readout" id="uartReadout"></div>
+        </div>
+      </div>
     </div>
   </div>
 

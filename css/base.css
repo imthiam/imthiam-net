@@ -200,6 +200,11 @@
     .pm-section { margin-bottom: 24px; }
     .pm-label { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 8px; }
     .pm-section p { font-size: 14px; color: var(--text2); line-height: 1.7; }
+    .uart-controls { display: flex; gap: 16px; margin-bottom: 12px; flex-wrap: wrap; }
+    .uart-field { display: flex; flex-direction: column; gap: 4px; font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.06em; }
+    .uart-field input, .uart-field select { background: var(--surface); border: 1px solid var(--border2); border-radius: 6px; padding: 6px 10px; color: var(--text); font-family: 'DM Mono', monospace; font-size: 13px; width: 70px; }
+    .uart-canvas { width: 100%; height: 140px; background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; }
+    .uart-readout { margin-top: 10px; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text2); word-break: break-all; }
     @media (max-width: 600px) {
       .pm-panel { width: 100%; padding: 56px 22px 30px; }
     }
