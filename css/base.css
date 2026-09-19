@@ -120,6 +120,11 @@
     body.crosshair-active .crosshair-label { opacity: 1; }
     body.crosshair-active a, body.crosshair-active button { cursor: none; }
 
+    /* DIAGNOSTIC MODE (P2, Konami code) */
+    .diagnostic-badge { position: fixed; top: 74px; right: 24px; z-index: 1002; background: rgba(255,0,80,0.12); border: 1px solid rgba(255,0,80,0.4); color: #ff2255; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.08em; padding: 6px 12px; border-radius: 6px; display: flex; gap: 10px; }
+    body.diagnostic-active::before { content: ''; position: fixed; inset: 0; z-index: 998; pointer-events: none; background-image: linear-gradient(rgba(255,0,80,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,0,80,0.08) 1px, transparent 1px); background-size: 40px 40px; }
+    body.diagnostic-active section, body.diagnostic-active nav, body.diagnostic-active footer { outline: 1px dashed rgba(255,0,80,0.35); outline-offset: -1px; }
+
     /* TILT + HALO (pointer: fine only) */
     .company-card, .pcard, .skill-group { transition: transform 0.15s ease, border-color 0.3s, box-shadow 0.3s; will-change: transform; position: relative; }
     .tilt-active::after { content: ''; position: absolute; inset: 0; border-radius: inherit; background: radial-gradient(220px circle at var(--halo-x,50%) var(--halo-y,50%), var(--accent-glow), transparent 70%); pointer-events: none; }

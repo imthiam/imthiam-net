@@ -12,6 +12,7 @@ import { initTerminal } from './terminal.js';
 import { initMicrointeractions } from './microinteractions.js';
 import { initPerfPanel } from './perf-panel.js';
 import { initSkillsGraph } from './skills-graph.js';
+import { initDiagnostic } from './diagnostic.js';
 
 const html = document.documentElement;
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -155,6 +156,7 @@ export function initCore() {
   initMicrointeractions();
   initPerfPanel();
   initSkillsGraph();
+  initDiagnostic();
 }
 
 initCore();
