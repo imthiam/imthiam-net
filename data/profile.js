@@ -1,0 +1,392 @@
+// Source unique de vérité pour le contenu du site (FR/EN).
+// Consommée par : index.html (rendu principal), js/render.js, js/command-palette.js,
+// js/terminal.js et cv.html (CV imprimable). Ne pas dupliquer ce contenu ailleurs.
+
+export const CONFIG = {
+  // Disponibilité affichée dans le hero — bascule simple, sans date en dur.
+  available: true,
+  // Confidentialité du stage de fin d'études : ne jamais révéler le nom de l'entreprise
+  // tant que cette valeur est à false (voir data.timeline, entrée "internship-2026").
+  showCompanyName: false,
+};
+
+export const profile = {
+  identity: {
+    name: 'Mohamed Thiam',
+    logoShort: 'M',
+    badge: {
+      fr: 'Disponible pour collaborations à fort impact',
+      en: 'Available for high-impact collaborations',
+    },
+    titleLine1: 'Mohamed',
+    titleLine2: 'Thiam.',
+    tagline: { fr: 'Ingénieur Systèmes Embarqués & IA', en: 'Embedded Systems & AI Engineer' },
+    taglineSuffix: 'CEO · CTO · Builder',
+    heroDesc: {
+      fr: "Je construis des <em>systèmes intelligents</em> — de l'IA embarquée sur drones et microcontrôleurs aux plateformes full-stack. CEO d'<em>AskiaBot</em>, CTO chez <em>Futuras Tech Solutions</em>. Entre la France et le Sénégal.",
+      en: "I build <em>intelligent systems</em> — from embedded AI on drones and microcontrollers to full-stack platforms. CEO of <em>AskiaBot</em>, CTO at <em>Futuras Tech Solutions</em>. Between France and Senegal.",
+    },
+    stats: [
+      { value: '10', suffix: '+', label: { fr: 'Projets livrés', en: 'Projects shipped' } },
+      { value: '2', suffix: '', label: { fr: 'Entreprises', en: 'Companies' } },
+      { value: '5', suffix: '+', label: { fr: "Ans d'expérience", en: 'Years building' } },
+      { value: '4', suffix: '', label: { fr: 'Pays', en: 'Countries' } },
+    ],
+  },
+
+  links: {
+    email: 'imthiam@icloud.com',
+    linkedin: 'https://linkedin.com/in/imthiam',
+    linkedinLabel: 'linkedin.com/in/imthiam',
+    github: 'https://github.com/imthiam',
+    githubLabel: 'github.com/imthiam',
+    phoneHref: 'tel:+33768108540',
+    phoneLabel: '+33 7 68 10 85 40',
+  },
+
+  companies: [
+    {
+      role: 'CEO',
+      name: 'AskiaBot',
+      link: 'https://www.askiabot.com/en',
+      desc: {
+        fr: "Plateforme SaaS d'assistants IA personnalisés — no-code, multi-canal (web widget, WhatsApp), gestion de base de connaissances, RAG, analytics temps réel. Plans de €29 à custom enterprise.",
+        en: 'SaaS platform for custom AI assistants — no-code, multi-channel (web widget, WhatsApp), knowledge base management, RAG, real-time analytics. Plans from €29 to custom enterprise.',
+      },
+      tags: ['AI / RAG', 'SaaS', 'WhatsApp Bot', 'No-code'],
+      linkLabel: 'askiabot.com →',
+    },
+    {
+      role: { fr: 'Co-fondateur & CTO', en: 'Co-founder & CTO' },
+      name: 'Futuras Tech',
+      link: 'https://www.futurastech.com/',
+      desc: {
+        fr: 'Agence tech spécialisée dans le développement d\'applications et sites web sur mesure. Produit phare : DocLinkers, première plateforme de télémédecine au Sénégal — consultations à distance, données médicales sécurisées.',
+        en: "Tech firm specializing in custom app and web development. Flagship: DocLinkers, Senegal's first telemedicine platform — remote consultations, secure medical data management.",
+      },
+      tags: ['HealthTech', 'Télémédecine', 'Afrique', 'Mobile'],
+      linkLabel: 'futurastech.com →',
+    },
+    {
+      role: { fr: 'Fondateur', en: 'Founder' },
+      name: 'Quinzaine Group',
+      link: null,
+      desc: {
+        fr: "Studio produit derrière plusieurs applications : Shareey (marketplace sénégalaise), ZenPayMe (escrow de paiement pour freelancers), Trac Plus (vision IA temps réel), Arosa'je (AgriTech).",
+        en: 'Product studio behind multiple apps: Shareey (Senegalese marketplace), ZenPayMe (freelancer payment escrow), Trac Plus (real-time AI vision), Arosa\'je (AgriTech).',
+      },
+      tags: ['E-commerce', 'Fintech', 'Computer Vision', 'AgriTech'],
+      linkLabel: null,
+    },
+  ],
+
+  about: {
+    heading: {
+      fr: 'Ingénieur de formation.<br><em>Bâtisseur</em> par nature.',
+      en: 'Engineer by training.<br><em>Builder</em> by nature.',
+    },
+    paragraphs: [
+      {
+        fr: "Étudiant ingénieur en 5e année à l'<strong>ESIEA Paris</strong>, spécialisation Systèmes Embarqués et Autonomes — diplôme juin 2026. Mon vrai apprentissage s'est fait en construisant des produits réels utilisés par de vraies personnes.",
+        en: 'Final-year engineering student at <strong>ESIEA Paris</strong>, Embedded & Autonomous Systems — graduating June 2026. My real education happened building actual products used by real people.',
+      },
+      {
+        fr: "De la navigation autonome de drones à la conception d'IPs UART sur FPGA, en passant par la conversion d'un véhicule électrique autonome et le déploiement de la première plateforme de télémédecine au Sénégal — j'opère à l'intersection de l'<strong>ingénierie embarquée profonde</strong> et de l'<strong>entrepreneuriat produit</strong>.",
+        en: "From autonomous drone navigation to FPGA UART IP design, autonomous EV conversion, and deploying Senegal's first telemedicine platform — I operate at the intersection of <strong>deep embedded engineering</strong> and <strong>product entrepreneurship</strong>.",
+      },
+      {
+        fr: 'Parcours international : <strong>France, Sénégal, Finlande, Lituanie</strong>. Cette perspective façonne chaque projet que je mène.',
+        en: 'International background: <strong>France, Senegal, Finland, Lithuania</strong>. That perspective shapes every project I lead.',
+      },
+      {
+        fr: 'En recherche d\'un <strong>CDI à partir de septembre 2026</strong> en systèmes embarqués, IA embarquée ou edge/cloud computing.',
+        en: 'Seeking a <strong>permanent position from September 2026</strong> in embedded systems, embedded AI, or edge/cloud computing.',
+      },
+    ],
+    locations: [
+      { fr: 'Paris, France (principal)', en: 'Paris, France (primary)' },
+      { fr: 'Dakar, Sénégal (remote / déplacements)', en: 'Dakar, Senegal (remote / travel)' },
+      { fr: 'Ouvert à la mobilité internationale', en: 'Open to international relocation' },
+    ],
+    photo: {
+      src: 'https://imthiam.github.io/imthiam-net/mypic.jpg',
+      alt: 'Mohamed Thiam',
+      badgeTitle: 'IBM AI Developer',
+      badgeTitleSuffix: { fr: 'Certifié', en: 'Certified' },
+      badgeSub: "TOEIC 880 · ESIEA '26",
+    },
+  },
+
+  skills: [
+    {
+      icon: '🔧',
+      title: { fr: 'Systèmes Embarqués', en: 'Embedded Systems' },
+      pills: [
+        { label: 'STM32', featured: true },
+        { label: 'ESP32', featured: true },
+        { label: 'Raspberry Pi', featured: true },
+        { label: 'Arduino', featured: true },
+        { label: 'FPGA', featured: true },
+        { label: 'VHDL' },
+        { label: 'FreeRTOS' },
+        { label: 'Zephyr' },
+        { label: 'CAN / UART / SPI' },
+        { label: 'Simulink' },
+      ],
+    },
+    {
+      icon: '🚁',
+      title: { fr: 'Drones & Autonomie', en: 'Drones & Autonomy' },
+      pills: [
+        { label: 'ArduPilot', featured: true },
+        { label: 'AirSim', featured: true },
+        { label: 'Mission Planner', featured: true },
+        { label: 'OpenPilot' },
+        { label: { fr: 'Navigation autonome', en: 'Autonomous navigation' } },
+        { label: 'Barcode detection' },
+      ],
+    },
+    {
+      icon: '🤖',
+      title: { fr: 'IA & Vision', en: 'AI & Vision' },
+      pills: [
+        { label: 'TensorFlow', featured: true },
+        { label: 'Computer Vision', featured: true },
+        { label: 'CNN / Deep Learning', featured: true },
+        { label: 'Edge AI', featured: true },
+        { label: 'AI APIs' },
+        { label: 'RAG' },
+        { label: { fr: "Classification d'images", en: 'Image classification' } },
+      ],
+    },
+    {
+      icon: '📱',
+      title: { fr: 'Mobile & Backend', en: 'Mobile & Backend' },
+      pills: [
+        { label: 'Flutter', featured: true },
+        { label: 'Python', featured: true },
+        { label: 'Flask / FastAPI', featured: true },
+        { label: 'C / C++' },
+        { label: 'Java' },
+        { label: 'Firebase' },
+        { label: 'REST APIs' },
+      ],
+    },
+    {
+      icon: '☁️',
+      title: { fr: 'Cloud & DevOps', en: 'Cloud & DevOps' },
+      pills: [
+        { label: 'Docker', featured: true },
+        { label: 'GitLab CI/CD', featured: true },
+        { label: 'Portainer', featured: true },
+        { label: 'AWS' },
+        { label: 'MQTT' },
+        { label: 'PostgreSQL' },
+        { label: 'Neo4j' },
+      ],
+    },
+    {
+      icon: '🌍',
+      title: { fr: 'Langues', en: 'Languages' },
+      pills: [
+        { label: { fr: 'Français (natif)', en: 'French (native)' }, featured: true },
+        { label: 'Anglais · TOEIC 880', featured: true },
+        { label: { fr: 'Espagnol (B1)', en: 'Spanish (B1)' } },
+        { label: { fr: 'Finnois (A1)', en: 'Finnish (A1)' } },
+      ],
+    },
+  ],
+
+  projects: [
+    {
+      slug: 'drone-inventaire',
+      cat: ['embedded', 'ai'],
+      icon: '🚁',
+      typeLabel: { fr: 'Drone · IoT', en: 'Drone · IoT' },
+      gradient: 'rgba(0,229,160,0.12)',
+      title: { fr: "Drone d'inventaire autonome", en: 'Autonomous Inventory Drone' },
+      desc: {
+        fr: 'Navigation autonome par codes-barres pour inventaire automatisé en entrepôt. Simulation AirSim + ArduPilot Mission Planner, programmation embarquée Python, intégration hardware & architecture système complète.',
+        en: 'Autonomous barcode navigation for automated warehouse inventory. AirSim + ArduPilot simulation, embedded Python programming, full hardware integration & system architecture.',
+      },
+      stack: ['ArduPilot', 'AirSim', 'Python', 'Computer Vision'],
+    },
+    {
+      slug: 'conversion-ve-autonome',
+      cat: ['embedded', 'ai'],
+      icon: '🚗',
+      typeLabel: { fr: 'Véhicule Autonome', en: 'Autonomous Vehicle' },
+      gradient: 'rgba(240,180,41,0.1)',
+      title: { fr: 'Conversion VE autonome (CAP)', en: 'Autonomous EV Conversion (CAP)' },
+      desc: {
+        fr: 'Refonte complète d\'un véhicule thermique : motorisation électrique, électronique embarquée, capteurs, architecture logicielle autonome (OpenPilot), design intérieur et systèmes de contrôle/communication.',
+        en: 'Complete combustion-to-electric conversion: electric drivetrain, embedded electronics, sensors, autonomous software (OpenPilot), interior design, control & communication systems.',
+      },
+      stack: ['OpenPilot', 'Embedded', 'EV', 'C++'],
+    },
+    {
+      slug: 'doclinkers',
+      cat: ['ai', 'mobile', 'product'],
+      icon: '🏥',
+      typeLabel: 'HealthTech',
+      gradient: 'rgba(0,212,255,0.1)',
+      title: 'DocLinkers',
+      desc: {
+        fr: 'Première plateforme de télémédecine au Sénégal — consultations à distance, gestion sécurisée des données médicales, urgences. Produit réel, impact réel en Afrique de l\'Ouest.',
+        en: "Senegal's first telemedicine platform — remote consultations, secure medical data, emergency care. Real product, real impact in West Africa.",
+      },
+      stack: ['Flutter', 'Firebase', 'Python'],
+    },
+    {
+      slug: 'ruches-ia',
+      cat: ['ai', 'embedded'],
+      icon: '🐝',
+      typeLabel: { fr: 'IA + Embarqué', en: 'AI + Embedded' },
+      gradient: 'rgba(0,229,160,0.08)',
+      title: { fr: 'IA surveillance des ruches', en: 'Beehive AI Monitoring' },
+      desc: {
+        fr: 'Modèle CNN + API Flask pour détecter les varroas sur images. App mobile Flutter pour apiculteurs. Application desktop cross-platform. Infrastructure CI/CD Docker/GitLab/Portainer complète.',
+        en: 'CNN model + Flask API for varroa detection on images. Flutter mobile app for beekeepers. Cross-platform desktop app. Full Docker/GitLab/Portainer CI/CD infrastructure.',
+      },
+      stack: ['TensorFlow', 'CNN', 'Flask', 'Flutter', 'Docker'],
+    },
+    {
+      slug: 'uart-fpga',
+      cat: ['embedded'],
+      icon: '⚡',
+      typeLabel: 'FPGA / VHDL',
+      gradient: 'rgba(240,180,41,0.1)',
+      title: { fr: 'IP UART sur FPGA', en: 'FPGA UART IP' },
+      desc: {
+        fr: 'Implémentation VHDL complète d\'une IP UART sur FPGA — liaison série PC/FPGA, contrôle servomoteur, acquisition télémètre ultrason en temps réel. Système combinant communication, contrôle et acquisition.',
+        en: 'Full VHDL UART IP on FPGA — serial PC/FPGA comms, servo motor control, real-time ultrasonic sensor acquisition. Combined communication, control and acquisition system.',
+      },
+      stack: ['VHDL', 'FPGA', 'UART'],
+    },
+    {
+      slug: 'zenpayme',
+      cat: ['mobile', 'product'],
+      icon: '💸',
+      typeLabel: 'Fintech',
+      gradient: 'rgba(240,180,41,0.08)',
+      title: 'ZenPayMe',
+      desc: {
+        fr: 'Plateforme de paiement escrow sécurisé pour freelancers. Le client paie en escrow, le travail est validé via démo, les fonds sont reversés automatiquement au prestataire.',
+        en: 'Secure escrow payment platform for freelancers. Client pays into escrow, work is validated via demo, funds automatically released to the provider.',
+      },
+      stack: ['Flutter', 'Firebase', 'Payments'],
+    },
+    {
+      slug: 'trac-plus',
+      cat: ['ai', 'mobile'],
+      icon: '👁️',
+      typeLabel: { fr: 'Vision IA', en: 'AI Vision' },
+      gradient: 'rgba(0,229,160,0.08)',
+      title: 'Trac Plus',
+      desc: {
+        fr: 'App de vision IA temps réel — détection faciale, reconnaissance d\'objets et de texte, répondeur intelligent, détecteur de tumeur cérébrale (CNN en cours). Live ou sur image.',
+        en: 'Real-time AI vision app — facial detection, object & text recognition, intelligent responder, brain tumor detector (CNN in progress). Live or from image.',
+      },
+      stack: ['Computer Vision', 'Flutter', 'TensorFlow'],
+    },
+    {
+      slug: 'lunettes-intelligentes',
+      cat: ['embedded'],
+      icon: '👓',
+      typeLabel: { fr: 'Tech assistive', en: 'Assistive Tech' },
+      gradient: 'rgba(0,212,255,0.06)',
+      title: { fr: 'Lunettes intelligentes', en: 'Smart Glasses' },
+      desc: {
+        fr: 'Dispositif portable pour malvoyants. Réseau de capteurs détectant les obstacles, alertes via vibrations et signaux audio pour améliorer l\'autonomie quotidienne.',
+        en: 'Wearable for visually impaired. Sensor array detecting obstacles, vibration/audio alerts for improved daily autonomy.',
+      },
+      stack: ['Embedded', 'Sensors', 'Hardware Design'],
+    },
+  ],
+
+  timeline: [
+    {
+      id: 'internship-2026',
+      current: true,
+      date: { fr: 'Mars–Sept. 2026', en: 'Mar–Sept 2026' },
+      role: { fr: 'Stagiaire Ingénieur IoT — Stage de fin d\'études', en: 'IoT Engineering Intern — Final Internship' },
+      org: { fr: 'Île-de-France, France', en: 'Île-de-France, France' },
+      desc: {
+        fr: 'Navigation autonome d\'un drone pour l\'inventaire automatisé par lecture de codes-barres. Développement logiciel & intégration matérielle, simulation de navigation via AirSim et ArduPilot Mission Planner, programmation embarquée Python pour pilotage, détection et lecture de codes-barres. Participation à la conception hardware et à l\'architecture système.',
+        en: 'Autonomous drone navigation for automated barcode-based inventory. Software dev & hardware integration, AirSim + ArduPilot navigation simulation, embedded Python for piloting, detection and barcode reading. Participation in hardware design and system architecture.',
+      },
+      tags: ['ArduPilot', 'AirSim', 'Python', 'Drone'],
+    },
+    {
+      id: 'cap-ve',
+      date: { fr: 'Sept. 2025–Jan. 2026', en: 'Sept 2025–Jan 2026' },
+      role: { fr: 'CAP Projet — Véhicule Électrique Autonome', en: 'CAP Project — Autonomous EV' },
+      org: 'ESIEA Paris',
+      desc: {
+        fr: 'Refonte complète d\'un véhicule thermique en électrique autonome : motorisation électrique, électronique embarquée, capteurs, architecture logicielle autonome (OpenPilot), design intérieur et intégration des systèmes de contrôle/communication.',
+        en: 'Full ICE-to-autonomous-electric conversion: electric drivetrain, embedded electronics, sensors, autonomous software architecture (OpenPilot), interior design, control/communication systems integration.',
+      },
+      tags: ['OpenPilot', 'Embedded', 'EV'],
+    },
+    {
+      id: 'ruches',
+      date: { fr: 'Avr–Juil. 2025', en: 'Apr–Jul 2025' },
+      role: { fr: 'Stagiaire Ingénieur IA & Fullstack', en: 'AI & Fullstack Engineering Intern' },
+      org: 'ESIEA Paris',
+      desc: {
+        fr: 'Déploiement d\'une solution complète de surveillance intelligente des ruches : intégration d\'un modèle CNN via API Flask, infrastructure CI/CD (Docker, GitLab, Portainer), application mobile Flutter pour apiculteurs, application desktop cross-platform (Win/Mac/Linux), API REST MySQL live.',
+        en: 'Full beehive monitoring solution: CNN model via Flask API, CI/CD infrastructure (Docker, GitLab, Portainer), Flutter mobile app for beekeepers, cross-platform desktop app (Win/Mac/Linux), live MySQL REST API.',
+      },
+      tags: ['CNN', 'Flask', 'Docker', 'Flutter'],
+    },
+    {
+      id: 'international-2024',
+      date: { fr: 'Jan.–Juin 2024', en: 'Jan–Jun 2024' },
+      role: { fr: 'Semestre International', en: 'International Semester' },
+      org: 'Centria UAS · Kokkola, Finlande + KTU, Lituanie',
+      desc: {
+        fr: 'Semestre à l\'étranger en systèmes embarqués. Blended Intensive Program à la KTU (Kaunas, Lituanie) — développement d\'un jeu 3D en équipe internationale pluridisciplinaire.',
+        en: 'Abroad semester in embedded systems. Blended Intensive Program at KTU (Kaunas, Lithuania) — 3D game development with an international, multidisciplinary team.',
+      },
+      tags: [],
+    },
+    {
+      id: 'esiea',
+      date: { fr: '2023–2026', en: '2023–2026' },
+      role: { fr: 'Ingénieur Systèmes Embarqués & Autonomes', en: 'Embedded & Autonomous Systems Engineer' },
+      org: 'ESIEA Paris',
+      desc: {
+        fr: 'Formation ingénieur 5 ans. Spécialisation FPGA, RTOS, systèmes autonomes, IA embarquée. Projets majeurs : drone d\'inventaire autonome, conversion VE autonome, IP UART sur FPGA, surveillance IA de ruches.',
+        en: '5-year engineering program. Specialization in FPGA, RTOS, autonomous systems, embedded AI. Major projects: autonomous inventory drone, autonomous EV conversion, FPGA UART IP, AI beehive monitoring.',
+      },
+      tags: [],
+    },
+    {
+      id: 'estim',
+      date: { fr: 'Juil–Oct. 2021', en: 'Jul–Oct 2021' },
+      role: { fr: 'Stagiaire Développement Logiciel', en: 'Software Development Intern' },
+      org: 'ESTIM SA · Dakar, Sénégal',
+      desc: {
+        fr: 'Développement d\'un logiciel de gestion administrative et financière pour un projet haute sécurité. Stack : HTML, CSS, JS, PHP, PostgreSQL.',
+        en: 'Built administrative & financial management software for a high-security project. Stack: HTML, CSS, JS, PHP, PostgreSQL.',
+      },
+      tags: [],
+    },
+  ],
+
+  contact: {
+    heading: {
+      fr: 'Construisons quelque<br><em>chose ensemble.</em>',
+      en: "Let's build<br><em>something together.</em>",
+    },
+    text: {
+      fr: "Ouvert aux <strong style='color:var(--text)'>rôles techniques senior</strong>, projets clients à fort impact et partenariats stratégiques — en particulier en IA, systèmes embarqués et tech pour l'Afrique. <strong style='color:var(--text)'>CDI recherché à partir de septembre 2026.</strong>",
+      en: "Open to <strong style='color:var(--text)'>senior technical roles</strong>, high-impact client projects and strategic partnerships — particularly in AI, embedded systems and tech for Africa. <strong style='color:var(--text)'>Seeking permanent position from September 2026.</strong>",
+    },
+  },
+
+  footer: {
+    copy: { fr: '© 2026 · Ingénieur & Entrepreneur · Paris & Dakar', en: '© 2026 · Engineer & Entrepreneur · Paris & Dakar' },
+    tagline: { fr: 'Conçu avec précision.', en: 'Built with precision.' },
+  },
+};

@@ -8,242 +8,40 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    [data-theme="dark"] {
-      --bg: #080c10; --bg2: #0d1117; --bg3: #131922; --surface: #161d27;
-      --border: rgba(255,255,255,0.07); --border2: rgba(255,255,255,0.12);
-      --text: #e8edf2; --text2: #8b95a3; --text3: #4a5568;
-      --accent: #00d4ff; --accent-dim: rgba(0,212,255,0.08); --accent-glow: rgba(0,212,255,0.15);
-      --shadow: rgba(0,0,0,0.5); --noise: 0.35;
-    }
-    [data-theme="light"] {
-      --bg: #f4f7fb; --bg2: #eaeff6; --bg3: #ffffff; --surface: #ffffff;
-      --border: rgba(0,0,0,0.08); --border2: rgba(0,0,0,0.14);
-      --text: #0f1923; --text2: #4a5a70; --text3: #94a3b8;
-      --accent: #0088bb; --accent-dim: rgba(0,136,187,0.08); --accent-glow: rgba(0,136,187,0.12);
-      --shadow: rgba(0,0,0,0.08); --noise: 0.07;
-    }
-
-    html { scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 1.7; overflow-x: hidden; transition: background 0.3s, color 0.3s; }
-    body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E"); pointer-events: none; z-index: 1000; opacity: var(--noise); }
-    .blob { position: fixed; border-radius: 50%; filter: blur(120px); pointer-events: none; z-index: 0; }
-    .blob-1 { width: 600px; height: 600px; background: rgba(0,212,255,0.04); top: -200px; right: -100px; }
-    .blob-2 { width: 500px; height: 500px; background: rgba(0,229,160,0.03); bottom: 10%; left: -150px; }
-
-    /* NAV */
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 900; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 64px; background: rgba(8,12,16,0.88); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); transition: background 0.3s, border-color 0.3s; }
-    [data-theme="light"] nav { background: rgba(244,247,251,0.92); }
-    .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 18px; color: var(--text); letter-spacing: -0.5px; }
-    .nav-logo span { color: var(--accent); }
-    .nav-links { display: flex; gap: 28px; list-style: none; align-items: center; }
-    .nav-links a { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text2); text-decoration: none; letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--accent); }
-    .nav-right { display: flex; align-items: center; gap: 10px; }
-    .icon-btn { width: 34px; height: 34px; border-radius: 8px; border: 1px solid var(--border2); background: var(--surface); color: var(--text2); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 15px; transition: all 0.2s; }
-    .icon-btn:hover { border-color: var(--accent); color: var(--accent); }
-    .lang-btn { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: var(--text2); background: var(--surface); border: 1px solid var(--border2); padding: 6px 11px; border-radius: 8px; cursor: pointer; transition: all 0.2s; text-transform: uppercase; }
-    .lang-btn:hover { border-color: var(--accent); color: var(--accent); }
-    .nav-cta { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent); text-decoration: none; border: 1px solid var(--accent); padding: 7px 16px; border-radius: 6px; transition: all 0.2s; letter-spacing: 0.05em; }
-    .nav-cta:hover { background: var(--accent); color: var(--bg); }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
-    .hamburger span { width: 22px; height: 1.5px; background: var(--text); display: block; }
-
-    /* MOBILE MENU */
-    .mobile-menu { display: none; position: fixed; inset: 0; background: var(--bg); z-index: 800; flex-direction: column; align-items: center; justify-content: center; gap: 24px; }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a { font-family: 'Syne', sans-serif; font-size: 26px; font-weight: 700; color: var(--text); text-decoration: none; transition: color 0.2s; }
-    .mobile-menu a:hover { color: var(--accent); }
-    .close-btn { position: absolute; top: 22px; right: 22px; background: none; border: none; color: var(--text2); font-size: 26px; cursor: pointer; line-height: 1; }
-    .mobile-controls { display: flex; gap: 10px; margin-top: 8px; }
-
-    /* LAYOUT */
-    section { position: relative; z-index: 1; }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
-    .section-pad { padding: 100px 0; }
-    .section-label { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
-    .section-label::after { content: ''; flex: 1; max-width: 60px; height: 1px; background: var(--accent); opacity: 0.4; }
-    h2 { font-family: 'Syne', sans-serif; font-size: clamp(32px, 4vw, 52px); font-weight: 800; letter-spacing: -2px; color: var(--text); line-height: 1.05; }
-    h2 em { font-style: normal; color: var(--accent); }
-
-    /* HERO */
-    #hero { min-height: 100vh; display: flex; align-items: center; padding: 120px 40px 80px; max-width: 1200px; margin: 0 auto; }
-    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--accent-dim); border: 1px solid rgba(0,212,255,0.2); padding: 6px 14px; border-radius: 100px; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 32px; animation: fadeUp 0.6s ease both; }
-    .hero-badge::before { content: '●'; font-size: 8px; animation: blink 2s infinite; }
-    @keyframes blink { 0%,100%{opacity:1}50%{opacity:0.3} }
-    h1 { font-family: 'Syne', sans-serif; font-size: clamp(50px, 8vw, 96px); font-weight: 800; line-height: 0.95; letter-spacing: -3px; color: var(--text); margin-bottom: 8px; animation: fadeUp 0.6s 0.1s ease both; }
-    h1 .line2 { color: var(--accent); display: block; }
-    .hero-tagline { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--text2); letter-spacing: 0.05em; margin-bottom: 28px; animation: fadeUp 0.6s 0.2s ease both; }
-    .hero-tagline strong { color: var(--accent); font-weight: 400; }
-    .hero-desc { font-size: 18px; color: var(--text2); max-width: 560px; line-height: 1.65; margin-bottom: 44px; font-weight: 300; animation: fadeUp 0.6s 0.3s ease both; }
-    .hero-desc em { color: var(--text); font-style: normal; font-weight: 400; }
-    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; animation: fadeUp 0.6s 0.4s ease both; }
-    .btn-primary { background: var(--accent); color: var(--bg); padding: 13px 26px; border-radius: 10px; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 15px; text-decoration: none; transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px; border: none; cursor: pointer; }
-    .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); box-shadow: 0 12px 36px var(--accent-glow); }
-    .btn-secondary { background: var(--surface); color: var(--text); padding: 13px 26px; border-radius: 10px; font-family: 'Syne', sans-serif; font-weight: 600; font-size: 15px; text-decoration: none; border: 1px solid var(--border2); transition: all 0.2s; }
-    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
-    .hero-stats { display: flex; gap: 40px; margin-top: 60px; padding-top: 36px; border-top: 1px solid var(--border); animation: fadeUp 0.6s 0.5s ease both; flex-wrap: wrap; }
-    .stat-num { font-family: 'Syne', sans-serif; font-size: 30px; font-weight: 800; color: var(--text); letter-spacing: -1px; }
-    .stat-num span { color: var(--accent); }
-    .stat-label { font-size: 11px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em; font-family: 'DM Mono', monospace; margin-top: 2px; }
-    @keyframes fadeUp { from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)} }
-
-    /* STRIP */
-    .roles-strip { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 13px 0; overflow: hidden; }
-    .roles-track { display: flex; gap: 52px; white-space: nowrap; animation: scroll-left 24s linear infinite; width: max-content; }
-    .roles-track span { font-family: 'DM Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text3); }
-    .roles-track span.a { color: var(--accent); }
-    @keyframes scroll-left { from{transform:translateX(0)}to{transform:translateX(-50%)} }
-
-    /* COMPANIES */
-    #companies { background: var(--bg2); }
-    .companies-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; margin-top: 52px; }
-    .company-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 20px; padding: 32px; transition: all 0.3s; position: relative; overflow: hidden; text-decoration: none; color: inherit; display: block; }
-    .company-card::before { content: ''; position: absolute; inset: 0; border-radius: 20px; background: linear-gradient(135deg, var(--accent-glow), transparent); opacity: 0; transition: opacity 0.3s; }
-    .company-card:hover { border-color: rgba(0,180,220,0.28); transform: translateY(-3px); box-shadow: 0 16px 48px var(--shadow); }
-    .company-card:hover::before { opacity: 1; }
-    .company-role { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 6px; }
-    .company-name { font-family: 'Syne', sans-serif; font-size: 24px; font-weight: 800; letter-spacing: -0.5px; color: var(--text); margin-bottom: 10px; }
-    .company-desc { font-size: 14px; color: var(--text2); line-height: 1.65; margin-bottom: 18px; }
-    .company-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-    .tag { background: rgba(255,255,255,0.04); border: 1px solid var(--border); padding: 4px 10px; border-radius: 100px; font-size: 11px; font-family: 'DM Mono', monospace; color: var(--text2); }
-    [data-theme="light"] .tag { background: rgba(0,0,0,0.03); }
-    .company-link { margin-top: 18px; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent); display: inline-flex; align-items: center; gap: 4px; }
-
-    /* ABOUT */
-    #about { background: var(--bg); }
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 56px; }
-    .about-text p { color: var(--text2); margin-bottom: 18px; font-size: 16px; line-height: 1.75; }
-    .about-text p strong { color: var(--text); font-weight: 500; }
-    .photo-frame { width: 100%; aspect-ratio: 3/4; max-width: 340px; background: var(--bg3); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; position: relative; }
-    .photo-frame img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(15%); transition: filter 0.3s; }
-    .photo-frame:hover img { filter: grayscale(0%); }
-    .photo-badge { position: absolute; bottom: 20px; left: 20px; background: rgba(8,12,16,0.88); border: 1px solid var(--border2); backdrop-filter: blur(10px); padding: 11px 15px; border-radius: 10px; }
-    [data-theme="light"] .photo-badge { background: rgba(255,255,255,0.92); }
-    .photo-badge p { font-size: 11px; color: var(--text2); font-family: 'DM Mono', monospace; }
-    .photo-badge strong { color: var(--accent); }
-    .loc-list { display: flex; flex-direction: column; gap: 10px; margin-top: 28px; }
-    .loc-item { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text2); font-family: 'DM Mono', monospace; }
-    .loc-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
-
-    /* SKILLS */
-    #skills { background: var(--bg2); }
-    .skills-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-top: 52px; }
-    .skill-group { background: var(--bg3); border: 1px solid var(--border); border-radius: 18px; padding: 26px; transition: border-color 0.3s; }
-    .skill-group:hover { border-color: var(--border2); }
-    .sg-icon { width: 38px; height: 38px; background: var(--accent-dim); border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 14px; }
-    .sg-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 15px; color: var(--text); margin-bottom: 14px; }
-    .pills { display: flex; flex-wrap: wrap; gap: 5px; }
-    .pill { background: rgba(255,255,255,0.04); border: 1px solid var(--border); padding: 4px 10px; border-radius: 5px; font-size: 11px; font-family: 'DM Mono', monospace; color: var(--text2); transition: all 0.2s; cursor: default; }
-    [data-theme="light"] .pill { background: rgba(0,0,0,0.03); }
-    .pill:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
-    .pill.f { border-color: rgba(0,180,220,0.3); color: var(--accent); background: var(--accent-dim); }
-
-    /* PROJECTS */
-    #projects { background: var(--bg); }
-    .proj-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 52px; flex-wrap: wrap; gap: 18px; }
-    .filter-tabs { display: flex; gap: 7px; flex-wrap: wrap; }
-    .ftab { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text3); background: none; border: 1px solid var(--border); padding: 5px 12px; border-radius: 5px; cursor: pointer; transition: all 0.2s; }
-    .ftab:hover, .ftab.active { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
-    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px,1fr)); gap: 18px; }
-    .pcard { background: var(--bg3); border: 1px solid var(--border); border-radius: 18px; overflow: hidden; transition: all 0.3s; display: flex; flex-direction: column; }
-    .pcard:hover { border-color: rgba(0,180,220,0.22); transform: translateY(-3px); box-shadow: 0 18px 52px var(--shadow); }
-    .pimg { width: 100%; height: 150px; background: var(--bg2); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-    .pimg-icon { font-size: 40px; opacity: 0.4; }
-    .pimg-grad { position: absolute; inset: 0; background: linear-gradient(135deg, var(--accent-dim), transparent); }
-    .ptype { position: absolute; top: 10px; right: 10px; font-family: 'DM Mono', monospace; font-size: 9px; text-transform: uppercase; letter-spacing: 0.1em; padding: 3px 9px; border-radius: 100px; background: rgba(8,12,16,0.82); border: 1px solid var(--border2); color: var(--text2); }
-    [data-theme="light"] .ptype { background: rgba(255,255,255,0.92); }
-    .pbody { padding: 22px; flex: 1; display: flex; flex-direction: column; }
-    .ptitle { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 18px; color: var(--text); letter-spacing: -0.4px; margin-bottom: 8px; }
-    .pdesc { font-size: 13px; color: var(--text2); line-height: 1.65; margin-bottom: 18px; flex: 1; }
-    .pstack { display: flex; flex-wrap: wrap; gap: 5px; }
-    .stag { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--accent); background: var(--accent-dim); border: 1px solid rgba(0,180,220,0.15); padding: 3px 7px; border-radius: 4px; }
-
-    /* TIMELINE */
-    #experience { background: var(--bg2); }
-    .timeline { margin-top: 52px; position: relative; }
-    .timeline::before { content: ''; position: absolute; left: 20px; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, var(--accent), transparent); }
-    .tl-item { display: flex; gap: 36px; padding-bottom: 44px; padding-left: 56px; position: relative; }
-    .tl-dot { position: absolute; left: 13px; top: 5px; width: 15px; height: 15px; border-radius: 50%; border: 2px solid var(--accent); background: var(--bg2); }
-    .tl-dot.now { background: var(--accent); box-shadow: 0 0 0 4px var(--accent-dim); }
-    .tl-date { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text3); white-space: nowrap; padding-top: 3px; min-width: 120px; }
-    .tl-content { flex: 1; }
-    .tl-role { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 17px; color: var(--text); letter-spacing: -0.3px; }
-    .tl-org { font-size: 12px; color: var(--accent); font-family: 'DM Mono', monospace; margin: 3px 0 10px; }
-    .tl-desc { font-size: 13px; color: var(--text2); line-height: 1.7; }
-    .tl-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
-
-    /* CONTACT */
-    #contact { background: var(--bg); }
-    .contact-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 72px; align-items: start; margin-top: 56px; }
-    .contact-text p { color: var(--text2); font-size: 16px; line-height: 1.75; margin-bottom: 22px; }
-    .clinks { display: flex; flex-direction: column; gap: 9px; }
-    .clink { display: flex; align-items: center; gap: 12px; padding: 13px 18px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; text-decoration: none; transition: all 0.2s; }
-    .clink:hover { border-color: var(--accent); transform: translateX(4px); }
-    .clink-icon { width: 34px; height: 34px; background: var(--accent-dim); border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; }
-    .clink-text { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--text2); }
-    .clink-label { font-size: 10px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em; }
-    .cform { display: flex; flex-direction: column; gap: 13px; }
-    .fg { display: flex; flex-direction: column; gap: 5px; }
-    .flabel { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text2); text-transform: uppercase; letter-spacing: 0.1em; }
-    .finput, .ftextarea { background: var(--surface); border: 1px solid var(--border); border-radius: 9px; padding: 11px 14px; color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 15px; transition: border-color 0.2s; outline: none; width: 100%; }
-    .finput:focus, .ftextarea:focus { border-color: var(--accent); }
-    .ftextarea { height: 105px; resize: vertical; }
-    .finput::placeholder, .ftextarea::placeholder { color: var(--text3); }
-
-    /* FOOTER */
-    footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 26px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; position: relative; z-index: 1; }
-    .footer-name { font-family: 'Syne', sans-serif; font-weight: 700; color: var(--text); font-size: 14px; }
-    .footer-copy { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text3); }
-
-    /* REVEAL */
-    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.65s ease, transform 0.65s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-
-    /* RESPONSIVE */
-    @media (max-width: 960px) {
-      nav { padding: 0 20px; }
-      .nav-links, .nav-cta { display: none; }
-      .hamburger { display: flex; }
-      #hero { padding: 100px 20px 60px; }
-      h1 { font-size: clamp(38px, 10vw, 62px); letter-spacing: -2px; }
-      .hero-stats { gap: 20px; }
-      .container { padding: 0 20px; }
-      .section-pad { padding: 70px 0; }
-      .about-grid { grid-template-columns: 1fr; gap: 40px; }
-      .about-photo-block { order: -1; }
-      .photo-frame { max-width: 240px; aspect-ratio: 1/1; }
-      .skills-grid { grid-template-columns: 1fr 1fr; }
-      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-      footer { padding: 20px; justify-content: center; text-align: center; }
-      .timeline::before { left: 7px; }
-      .tl-item { padding-left: 32px; gap: 0; flex-direction: column; }
-      .tl-dot { left: 0; }
-    }
-    @media (max-width: 600px) {
-      .skills-grid { grid-template-columns: 1fr; }
-      .companies-grid { grid-template-columns: 1fr; }
-    }
-  </style>
+  <link rel="stylesheet" href="css/base.css" />
+  <script type="module" src="js/main.js"></script>
 </head>
 <body>
   <div class="blob blob-1"></div>
   <div class="blob blob-2"></div>
 
+  <noscript>
+    <div class="container section-pad" style="max-width:720px">
+      <h1 style="font-size:clamp(36px,7vw,64px)">Mohamed Thiam</h1>
+      <p class="hero-tagline">Ingénieur Systèmes Embarqués & IA · CEO · CTO · Builder</p>
+      <p class="hero-desc">Je construis des systèmes intelligents — de l'IA embarquée sur drones et microcontrôleurs aux plateformes full-stack. CEO d'AskiaBot, CTO chez Futuras Tech Solutions. Entre la France et le Sénégal.</p>
+      <p style="color:var(--text2)">
+        <a href="mailto:imthiam@icloud.com" style="color:var(--accent)">imthiam@icloud.com</a> ·
+        <a href="https://linkedin.com/in/imthiam" style="color:var(--accent)">LinkedIn</a> ·
+        <a href="https://github.com/imthiam" style="color:var(--accent)">GitHub</a> ·
+        +33 7 68 10 85 40
+      </p>
+      <p style="margin-top:24px;font-size:13px;color:var(--text3)">Activez JavaScript pour l'expérience complète (thème, langue, projets, parcours détaillé).</p>
+    </div>
+  </noscript>
+
   <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu">
-    <button class="close-btn" onclick="closeMMenu()">✕</button>
-    <a href="#companies" onclick="closeMMenu()" data-fr="Ventures" data-en="Ventures">Ventures</a>
-    <a href="#about" onclick="closeMMenu()" data-fr="À propos" data-en="About">À propos</a>
-    <a href="#skills" onclick="closeMMenu()" data-fr="Compétences" data-en="Skills">Compétences</a>
-    <a href="#projects" onclick="closeMMenu()" data-fr="Projets" data-en="Projects">Projets</a>
-    <a href="#experience" onclick="closeMMenu()" data-fr="Parcours" data-en="Journey">Parcours</a>
-    <a href="#contact" onclick="closeMMenu()" data-fr="Contact" data-en="Contact">Contact</a>
+    <button class="close-btn" id="mmCloseBtn">✕</button>
+    <a href="#companies" data-fr="Ventures" data-en="Ventures">Ventures</a>
+    <a href="#about" data-fr="À propos" data-en="About">À propos</a>
+    <a href="#skills" data-fr="Compétences" data-en="Skills">Compétences</a>
+    <a href="#projects" data-fr="Projets" data-en="Projects">Projets</a>
+    <a href="#experience" data-fr="Parcours" data-en="Journey">Parcours</a>
+    <a href="#contact" data-fr="Contact" data-en="Contact">Contact</a>
     <div class="mobile-controls">
-      <button class="icon-btn" onclick="toggleTheme()" id="mThemeBtn">🌙</button>
-      <button class="lang-btn" onclick="toggleLang()" id="mLangBtn">EN</button>
+      <button class="icon-btn" id="mThemeBtn">🌙</button>
+      <button class="lang-btn" id="mLangBtn">EN</button>
     </div>
   </div>
 
@@ -258,30 +56,25 @@
       <li><a href="#experience" data-fr="Parcours" data-en="Journey">Parcours</a></li>
     </ul>
     <div class="nav-right">
-      <button class="icon-btn" onclick="toggleTheme()" id="themeBtn" title="Theme">🌙</button>
-      <button class="lang-btn" onclick="toggleLang()" id="langBtn">EN</button>
+      <button class="icon-btn" id="themeBtn" title="Theme">🌙</button>
+      <button class="lang-btn" id="langBtn">EN</button>
       <a href="#contact" class="nav-cta" data-fr="Contact" data-en="Contact">Contact</a>
     </div>
-    <button class="hamburger" onclick="openMMenu()"><span></span><span></span><span></span></button>
+    <button class="hamburger" id="hamburgerBtn"><span></span><span></span><span></span></button>
   </nav>
 
   <!-- HERO -->
   <section id="hero">
     <div style="max-width:820px">
-      <div class="hero-badge" data-fr="Disponible pour collaborations à fort impact" data-en="Available for high-impact collaborations">Disponible pour collaborations à fort impact</div>
-      <h1>Mohamed<span class="line2">Thiam.</span></h1>
-      <p class="hero-tagline"><strong data-fr="Ingénieur Systèmes Embarqués & IA" data-en="Embedded Systems & AI Engineer">Ingénieur Systèmes Embarqués & IA</strong> · CEO · CTO · Builder</p>
-      <p class="hero-desc" data-fr="Je construis des <em>systèmes intelligents</em> — de l'IA embarquée sur drones et microcontrôleurs aux plateformes full-stack. CEO d'<em>AskiaBot</em>, CTO chez <em>Futuras Tech Solutions</em>. Entre la France et le Sénégal.">Je construis des <em>systèmes intelligents</em> — de l'IA embarquée sur drones et microcontrôleurs aux plateformes full-stack. CEO d'<em>AskiaBot</em>, CTO chez <em>Futuras Tech Solutions</em>. Entre la France et le Sénégal.</p>
+      <div class="hero-badge" id="heroBadge"></div>
+      <h1 id="heroTitle"></h1>
+      <p class="hero-tagline" id="heroTagline"></p>
+      <p class="hero-desc" id="heroDesc"></p>
       <div class="hero-actions">
         <a href="#projects" class="btn-primary" data-fr="Voir mes projets →" data-en="View my work →">Voir mes projets →</a>
         <a href="#contact" class="btn-secondary" data-fr="Me contacter" data-en="Get in touch">Me contacter</a>
       </div>
-      <div class="hero-stats">
-        <div><div class="stat-num">10<span>+</span></div><div class="stat-label" data-fr="Projets livrés" data-en="Projects shipped">Projets livrés</div></div>
-        <div><div class="stat-num">2</div><div class="stat-label" data-fr="Entreprises" data-en="Companies">Entreprises</div></div>
-        <div><div class="stat-num">5<span>+</span></div><div class="stat-label" data-fr="Ans d'expérience" data-en="Years building">Ans d'expérience</div></div>
-        <div><div class="stat-num">4</div><div class="stat-label" data-fr="Pays" data-en="Countries">Pays</div></div>
-      </div>
+      <div class="hero-stats" id="heroStats"></div>
     </div>
   </section>
 
@@ -298,32 +91,7 @@
     <div class="container">
       <div class="section-label" data-fr="Ventures" data-en="Ventures">Ventures</div>
       <h2 data-fr="Entreprises que je <em>dirige</em>" data-en="Companies I <em>lead</em>">Entreprises que je <em>dirige</em></h2>
-      <div class="companies-grid reveal">
-
-        <a href="https://www.askiabot.com/en" target="_blank" class="company-card">
-          <div class="company-role">CEO</div>
-          <div class="company-name">AskiaBot</div>
-          <div class="company-desc" data-fr="Plateforme SaaS d'assistants IA personnalisés — no-code, multi-canal (web widget, WhatsApp), gestion de base de connaissances, RAG, analytics temps réel. Plans de €29 à custom enterprise." data-en="SaaS platform for custom AI assistants — no-code, multi-channel (web widget, WhatsApp), knowledge base management, RAG, real-time analytics. Plans from €29 to custom enterprise.">Plateforme SaaS d'assistants IA personnalisés — no-code, multi-canal (web widget, WhatsApp), gestion de base de connaissances, RAG, analytics temps réel. Plans de €29 à custom enterprise.</div>
-          <div class="company-tags"><span class="tag">AI / RAG</span><span class="tag">SaaS</span><span class="tag">WhatsApp Bot</span><span class="tag">No-code</span></div>
-          <div class="company-link">askiabot.com →</div>
-        </a>
-
-        <a href="https://www.futurastech.com/" target="_blank" class="company-card">
-          <div class="company-role">Co-founder & CTO</div>
-          <div class="company-name">Futuras Tech</div>
-          <div class="company-desc" data-fr="Agence tech spécialisée dans le développement d'applications et sites web sur mesure. Produit phare : DocLinkers, première plateforme de télémédecine au Sénégal — consultations à distance, données médicales sécurisées." data-en="Tech firm specializing in custom app and web development. Flagship: DocLinkers, Senegal's first telemedicine platform — remote consultations, secure medical data management.">Agence tech spécialisée dans le développement d'applications et sites web sur mesure. Produit phare : DocLinkers, première plateforme de télémédecine au Sénégal — consultations à distance, données médicales sécurisées.</div>
-          <div class="company-tags"><span class="tag">HealthTech</span><span class="tag">Télémédecine</span><span class="tag">Afrique</span><span class="tag">Mobile</span></div>
-          <div class="company-link">futurastech.com →</div>
-        </a>
-
-        <div class="company-card">
-          <div class="company-role" data-fr="Fondateur" data-en="Founder">Fondateur</div>
-          <div class="company-name">Quinzaine Group</div>
-          <div class="company-desc" data-fr="Studio produit derrière plusieurs applications : Shareey (marketplace sénégalaise), ZenPayMe (escrow de paiement pour freelancers), Trac Plus (vision IA temps réel), Arosa'je (AgriTech)." data-en="Product studio behind multiple apps: Shareey (Senegalese marketplace), ZenPayMe (freelancer payment escrow), Trac Plus (real-time AI vision), Arosa'je (AgriTech).">Studio produit derrière plusieurs applications : Shareey (marketplace sénégalaise), ZenPayMe (escrow de paiement pour freelancers), Trac Plus (vision IA temps réel), Arosa'je (AgriTech).</div>
-          <div class="company-tags"><span class="tag">E-commerce</span><span class="tag">Fintech</span><span class="tag">Computer Vision</span><span class="tag">AgriTech</span></div>
-        </div>
-
-      </div>
+      <div class="companies-grid reveal" id="companiesGrid"></div>
     </div>
   </section>
 
@@ -332,26 +100,18 @@
     <div class="container">
       <div class="section-label" data-fr="À propos" data-en="About">À propos</div>
       <div class="about-grid">
-        <div class="about-text reveal">
-          <h2 style="margin-bottom:28px" data-fr="Ingénieur de formation.<br><em>Bâtisseur</em> par nature." data-en="Engineer by training.<br><em>Builder</em> by nature.">Ingénieur de formation.<br><em>Bâtisseur</em> par nature.</h2>
-          <p data-fr="Étudiant ingénieur en 5e année à l'<strong>ESIEA Paris</strong>, spécialisation Systèmes Embarqués et Autonomes — diplôme juin 2026. Mon vrai apprentissage s'est fait en construisant des produits réels utilisés par de vraies personnes." data-en="Final-year engineering student at <strong>ESIEA Paris</strong>, Embedded & Autonomous Systems — graduating June 2026. My real education happened building actual products used by real people.">Étudiant ingénieur en 5e année à l'<strong>ESIEA Paris</strong>, spécialisation Systèmes Embarqués et Autonomes — diplôme juin 2026. Mon vrai apprentissage s'est fait en construisant des produits réels utilisés par de vraies personnes.</p>
-          <p data-fr="De la navigation autonome de drones à la conception d'IPs UART sur FPGA, en passant par la conversion d'un véhicule électrique autonome et le déploiement de la première plateforme de télémédecine au Sénégal — j'opère à l'intersection de l'<strong>ingénierie embarquée profonde</strong> et de l'<strong>entrepreneuriat produit</strong>." data-en="From autonomous drone navigation to FPGA UART IP design, autonomous EV conversion, and deploying Senegal's first telemedicine platform — I operate at the intersection of <strong>deep embedded engineering</strong> and <strong>product entrepreneurship</strong>.">De la navigation autonome de drones à la conception d'IPs UART sur FPGA, en passant par la conversion d'un véhicule électrique autonome et le déploiement de la première plateforme de télémédecine au Sénégal — j'opère à l'intersection de l'<strong>ingénierie embarquée profonde</strong> et de l'<strong>entrepreneuriat produit</strong>.</p>
-          <p data-fr="Parcours international : <strong>France, Sénégal, Finlande, Lituanie</strong>. Cette perspective façonne chaque projet que je mène." data-en="International background: <strong>France, Senegal, Finland, Lithuania</strong>. That perspective shapes every project I lead.">Parcours international : <strong>France, Sénégal, Finlande, Lituanie</strong>. Cette perspective façonne chaque projet que je mène.</p>
-          <p data-fr="En recherche d'un <strong>CDI à partir de septembre 2026</strong> en systèmes embarqués, IA embarquée ou edge/cloud computing." data-en="Seeking a <strong>permanent position from September 2026</strong> in embedded systems, embedded AI, or edge/cloud computing.">En recherche d'un <strong>CDI à partir de septembre 2026</strong> en systèmes embarqués, IA embarquée ou edge/cloud computing.</p>
-          <div class="loc-list">
-            <div class="loc-item"><div class="loc-dot"></div><span data-fr="Paris, France (principal)" data-en="Paris, France (primary)">Paris, France (principal)</span></div>
-            <div class="loc-item"><div class="loc-dot"></div><span data-fr="Dakar, Sénégal (remote / déplacements)" data-en="Dakar, Senegal (remote / travel)">Dakar, Sénégal (remote / déplacements)</span></div>
-            <div class="loc-item"><div class="loc-dot"></div><span data-fr="Ouvert à la mobilité internationale" data-en="Open to international relocation">Ouvert à la mobilité internationale</span></div>
-          </div>
+        <div class="about-text reveal" id="aboutText">
+          <h2 id="aboutHeading" style="margin-bottom:28px"></h2>
         </div>
         <div class="about-photo-block reveal">
           <div class="photo-frame">
-            <img src="https://imthiam.github.io/imthiam-net/mypic.jpg" alt="Mohamed Thiam" onerror="this.style.display='none'" />
+            <img id="aboutPhoto" src="" alt="" onerror="this.style.display='none'" />
             <div class="photo-badge">
-              <p><strong>IBM AI Developer</strong> Certified</p>
-              <p>TOEIC 880 · ESIEA '26</p>
+              <p id="aboutPhotoBadgeTitle"></p>
+              <p id="aboutPhotoBadgeSub"></p>
             </div>
           </div>
+          <div class="loc-list" id="aboutLocations"></div>
         </div>
       </div>
     </div>
@@ -362,14 +122,7 @@
     <div class="container">
       <div class="section-label" data-fr="Expertise" data-en="Expertise">Expertise</div>
       <h2 data-fr="Ce que je <em>maîtrise</em>" data-en="What I <em>master</em>">Ce que je <em>maîtrise</em></h2>
-      <div class="skills-grid reveal">
-        <div class="skill-group"><div class="sg-icon">🔧</div><div class="sg-title" data-fr="Systèmes Embarqués" data-en="Embedded Systems">Systèmes Embarqués</div><div class="pills"><span class="pill f">STM32</span><span class="pill f">ESP32</span><span class="pill f">Raspberry Pi</span><span class="pill f">Arduino</span><span class="pill f">FPGA</span><span class="pill">VHDL</span><span class="pill">FreeRTOS</span><span class="pill">Zephyr</span><span class="pill">CAN / UART / SPI</span><span class="pill">Simulink</span></div></div>
-        <div class="skill-group"><div class="sg-icon">🚁</div><div class="sg-title" data-fr="Drones & Autonomie" data-en="Drones & Autonomy">Drones & Autonomie</div><div class="pills"><span class="pill f">ArduPilot</span><span class="pill f">AirSim</span><span class="pill f">Mission Planner</span><span class="pill">OpenPilot</span><span class="pill" data-fr="Navigation autonome" data-en="Autonomous navigation">Navigation autonome</span><span class="pill">Barcode detection</span></div></div>
-        <div class="skill-group"><div class="sg-icon">🤖</div><div class="sg-title" data-fr="IA & Vision" data-en="AI & Vision">IA & Vision</div><div class="pills"><span class="pill f">TensorFlow</span><span class="pill f">Computer Vision</span><span class="pill f">CNN / Deep Learning</span><span class="pill f">Edge AI</span><span class="pill">AI APIs</span><span class="pill">RAG</span><span class="pill" data-fr="Classification d'images" data-en="Image classification">Classification d'images</span></div></div>
-        <div class="skill-group"><div class="sg-icon">📱</div><div class="sg-title" data-fr="Mobile & Backend" data-en="Mobile & Backend">Mobile & Backend</div><div class="pills"><span class="pill f">Flutter</span><span class="pill f">Python</span><span class="pill f">Flask / FastAPI</span><span class="pill">C / C++</span><span class="pill">Java</span><span class="pill">Firebase</span><span class="pill">REST APIs</span></div></div>
-        <div class="skill-group"><div class="sg-icon">☁️</div><div class="sg-title" data-fr="Cloud & DevOps" data-en="Cloud & DevOps">Cloud & DevOps</div><div class="pills"><span class="pill f">Docker</span><span class="pill f">GitLab CI/CD</span><span class="pill f">Portainer</span><span class="pill">AWS</span><span class="pill">MQTT</span><span class="pill">PostgreSQL</span><span class="pill">Neo4j</span></div></div>
-        <div class="skill-group"><div class="sg-icon">🌍</div><div class="sg-title" data-fr="Langues" data-en="Languages">Langues</div><div class="pills"><span class="pill f" data-fr="Français (natif)" data-en="French (native)">Français (natif)</span><span class="pill f">Anglais · TOEIC 880</span><span class="pill" data-fr="Espagnol (B1)" data-en="Spanish (B1)">Espagnol (B1)</span><span class="pill" data-fr="Finnois (A1)" data-en="Finnish (A1)">Finnois (A1)</span></div></div>
-      </div>
+      <div class="skills-grid reveal" id="skillsGrid"></div>
     </div>
   </section>
 
@@ -389,81 +142,7 @@
           <button class="ftab" data-filter="product" data-fr="Produit" data-en="Product">Produit</button>
         </div>
       </div>
-      <div class="projects-grid reveal">
-
-        <div class="pcard" data-cat="embedded ai">
-          <div class="pimg"><div class="pimg-grad" style="background:linear-gradient(135deg,rgba(0,229,160,0.12),transparent)"></div><div class="pimg-icon">🚁</div><div class="ptype" data-fr="Drone · IoT" data-en="Drone · IoT">Drone · IoT</div></div>
-          <div class="pbody">
-            <div class="ptitle" data-fr="Drone d'inventaire autonome" data-en="Autonomous Inventory Drone">Drone d'inventaire autonome</div>
-            <div class="pdesc" data-fr="Navigation autonome par codes-barres pour inventaire automatisé en entrepôt. Simulation AirSim + ArduPilot Mission Planner, programmation embarquée Python, intégration hardware & architecture système complète." data-en="Autonomous barcode navigation for automated warehouse inventory. AirSim + ArduPilot simulation, embedded Python programming, full hardware integration & system architecture.">Navigation autonome par codes-barres pour inventaire automatisé en entrepôt. Simulation AirSim + ArduPilot Mission Planner, programmation embarquée Python, intégration hardware & architecture système complète.</div>
-            <div class="pstack"><span class="stag">ArduPilot</span><span class="stag">AirSim</span><span class="stag">Python</span><span class="stag">Computer Vision</span></div>
-          </div>
-        </div>
-
-        <div class="pcard" data-cat="embedded ai">
-          <div class="pimg"><div class="pimg-grad" style="background:linear-gradient(135deg,rgba(240,180,41,0.1),transparent)"></div><div class="pimg-icon">🚗</div><div class="ptype" data-fr="Véhicule Autonome" data-en="Autonomous Vehicle">Véhicule Autonome</div></div>
-          <div class="pbody">
-            <div class="ptitle" data-fr="Conversion VE autonome (CAP)" data-en="Autonomous EV Conversion (CAP)">Conversion VE autonome (CAP)</div>
-            <div class="pdesc" data-fr="Refonte complète d'un véhicule thermique : motorisation électrique, électronique embarquée, capteurs, architecture logicielle autonome (OpenPilot), design intérieur et systèmes de contrôle/communication." data-en="Complete combustion-to-electric conversion: electric drivetrain, embedded electronics, sensors, autonomous software (OpenPilot), interior design, control & communication systems.">Refonte complète d'un véhicule thermique : motorisation électrique, électronique embarquée, capteurs, architecture logicielle autonome (OpenPilot), design intérieur et systèmes de contrôle/communication.</div>
-            <div class="pstack"><span class="stag">OpenPilot</span><span class="stag">Embedded</span><span class="stag">EV</span><span class="stag">C++</span></div>
-          </div>
-        </div>
-
-        <div class="pcard" data-cat="ai mobile product">
-          <div class="pimg"><div class="pimg-grad" style="background:linear-gradient(135deg,rgba(0,212,255,0.1),transparent)"></div><div class="pimg-icon">🏥</div><div class="ptype">HealthTech</div></div>
-          <div class="pbody">
-            <div class="ptitle">DocLinkers</div>
-            <div class="pdesc" data-fr="Première plateforme de télémédecine au Sénégal — consultations à distance, gestion sécurisée des données médicales, urgences. Produit réel, impact réel en Afrique de l'Ouest." data-en="Senegal's first telemedicine platform — remote consultations, secure medical data, emergency care. Real product, real impact in West Africa.">Première plateforme de télémédecine au Sénégal — consultations à distance, gestion sécurisée des données médicales, urgences. Produit réel, impact réel en Afrique de l'Ouest.</div>
-            <div class="pstack"><span class="stag">Flutter</span><span class="stag">Firebase</span><span class="stag">Python</span></div>
-          </div>
-        </div>
-
-        <div class="pcard" data-cat="ai embedded">
-          <div class="pimg"><div class="pimg-grad" style="background:linear-gradient(135deg,rgba(0,229,160,0.08),transparent)"></div><div class="pimg-icon">🐝</div><div class="ptype" data-fr="IA + Embarqué" data-en="AI + Embedded">IA + Embarqué</div></div>
-          <div class="pbody">
-            <div class="ptitle" data-fr="IA surveillance des ruches" data-en="Beehive AI Monitoring">IA surveillance des ruches</div>
-            <div class="pdesc" data-fr="Modèle CNN + API Flask pour détecter les varroas sur images. App mobile Flutter pour apiculteurs. Application desktop cross-platform. Infrastructure CI/CD Docker/GitLab/Portainer complète." data-en="CNN model + Flask API for varroa detection on images. Flutter mobile app for beekeepers. Cross-platform desktop app. Full Docker/GitLab/Portainer CI/CD infrastructure.">Modèle CNN + API Flask pour détecter les varroas sur images. App mobile Flutter pour apiculteurs. Application desktop cross-platform. Infrastructure CI/CD Docker/GitLab/Portainer complète.</div>
-            <div class="pstack"><span class="stag">TensorFlow</span><span class="stag">CNN</span><span class="stag">Flask</span><span class="stag">Flutter</span><span class="stag">Docker</span></div>
-          </div>
-        </div>
-
-        <div class="pcard" data-cat="embedded">
-          <div class="pimg"><div class="pimg-grad" style="background:linear-gradient(135deg,rgba(240,180,41,0.1),transparent)"></div><div class="pimg-icon">⚡</div><div class="ptype">FPGA / VHDL</div></div>
-          <div class="pbody">
-            <div class="ptitle" data-fr="IP UART sur FPGA" data-en="FPGA UART IP">IP UART sur FPGA</div>
-            <div class="pdesc" data-fr="Implémentation VHDL complète d'une IP UART sur FPGA — liaison série PC/FPGA, contrôle servomoteur, acquisition télémètre ultrason en temps réel. Système combinant communication, contrôle et acquisition." data-en="Full VHDL UART IP on FPGA — serial PC/FPGA comms, servo motor control, real-time ultrasonic sensor acquisition. Combined communication, control and acquisition system.">Implémentation VHDL complète d'une IP UART sur FPGA — liaison série PC/FPGA, contrôle servomoteur, acquisition télémètre ultrason en temps réel.</div>
-            <div class="pstack"><span class="stag">VHDL</span><span class="stag">FPGA</span><span class="stag">UART</span></div>
-          </div>
-        </div>
-
-        <div class="pcard" data-cat="mobile product">
-          <div class="pimg"><div class="pimg-grad" style="background:linear-gradient(135deg,rgba(240,180,41,0.08),transparent)"></div><div class="pimg-icon">💸</div><div class="ptype">Fintech</div></div>
-          <div class="pbody">
-            <div class="ptitle">ZenPayMe</div>
-            <div class="pdesc" data-fr="Plateforme de paiement escrow sécurisé pour freelancers. Le client paie en escrow, le travail est validé via démo, les fonds sont reversés automatiquement au prestataire." data-en="Secure escrow payment platform for freelancers. Client pays into escrow, work is validated via demo, funds automatically released to the provider.">Plateforme de paiement escrow sécurisé pour freelancers. Le client paie en escrow, le travail est validé via démo, les fonds sont reversés automatiquement au prestataire.</div>
-            <div class="pstack"><span class="stag">Flutter</span><span class="stag">Firebase</span><span class="stag">Payments</span></div>
-          </div>
-        </div>
-
-        <div class="pcard" data-cat="ai mobile">
-          <div class="pimg"><div class="pimg-grad" style="background:linear-gradient(135deg,rgba(0,229,160,0.08),transparent)"></div><div class="pimg-icon">👁️</div><div class="ptype" data-fr="Vision IA" data-en="AI Vision">Vision IA</div></div>
-          <div class="pbody">
-            <div class="ptitle">Trac Plus</div>
-            <div class="pdesc" data-fr="App de vision IA temps réel — détection faciale, reconnaissance d'objets et de texte, répondeur intelligent, détecteur de tumeur cérébrale (CNN en cours). Live ou sur image." data-en="Real-time AI vision app — facial detection, object & text recognition, intelligent responder, brain tumor detector (CNN in progress). Live or from image.">App de vision IA temps réel — détection faciale, reconnaissance d'objets et de texte, répondeur intelligent, détecteur de tumeur cérébrale (CNN en cours). Live ou sur image.</div>
-            <div class="pstack"><span class="stag">Computer Vision</span><span class="stag">Flutter</span><span class="stag">TensorFlow</span></div>
-          </div>
-        </div>
-
-        <div class="pcard" data-cat="embedded">
-          <div class="pimg"><div class="pimg-grad" style="background:linear-gradient(135deg,rgba(0,212,255,0.06),transparent)"></div><div class="pimg-icon">👓</div><div class="ptype" data-fr="Tech assistive" data-en="Assistive Tech">Tech assistive</div></div>
-          <div class="pbody">
-            <div class="ptitle" data-fr="Lunettes intelligentes" data-en="Smart Glasses">Lunettes intelligentes</div>
-            <div class="pdesc" data-fr="Dispositif portable pour malvoyants. Réseau de capteurs détectant les obstacles, alertes via vibrations et signaux audio pour améliorer l'autonomie quotidienne." data-en="Wearable for visually impaired. Sensor array detecting obstacles, vibration/audio alerts for improved daily autonomy.">Dispositif portable pour malvoyants. Réseau de capteurs détectant les obstacles, alertes via vibrations et signaux audio pour améliorer l'autonomie quotidienne.</div>
-            <div class="pstack"><span class="stag">Embedded</span><span class="stag">Sensors</span><span class="stag">Hardware Design</span></div>
-          </div>
-        </div>
-
-      </div>
+      <div class="projects-grid reveal" id="projectsGrid"></div>
     </div>
   </section>
 
@@ -472,72 +151,7 @@
     <div class="container">
       <div class="section-label" data-fr="Parcours" data-en="Journey">Parcours</div>
       <h2 data-fr="Comment j'en suis <em>arrivé là</em>" data-en="How I got <em>here</em>">Comment j'en suis <em>arrivé là</em></h2>
-      <div class="timeline reveal">
-
-        <div class="tl-item">
-          <div class="tl-dot now"></div>
-          <div class="tl-date" data-fr="Mars–Sept. 2026" data-en="Mar–Sept 2026">Mars–Sept. 2026</div>
-          <div class="tl-content">
-            <div class="tl-role" data-fr="Stagiaire Ingénieur IoT — Stage de fin d'études" data-en="IoT Engineering Intern — Final Internship">Stagiaire Ingénieur IoT — Stage de fin d'études</div>
-            <div class="tl-org" data-fr="Île-de-France, France" data-en="Île-de-France, France">Île-de-France, France</div>
-            <div class="tl-desc" data-fr="Navigation autonome d'un drone pour l'inventaire automatisé par lecture de codes-barres. Développement logiciel & intégration matérielle, simulation de navigation via AirSim et ArduPilot Mission Planner, programmation embarquée Python pour pilotage, détection et lecture de codes-barres. Participation à la conception hardware et à l'architecture système." data-en="Autonomous drone navigation for automated barcode-based inventory. Software dev & hardware integration, AirSim + ArduPilot navigation simulation, embedded Python for piloting, detection and barcode reading. Participation in hardware design and system architecture.">Navigation autonome d'un drone pour l'inventaire automatisé par lecture de codes-barres. Développement logiciel & intégration matérielle, simulation de navigation via AirSim et ArduPilot Mission Planner, programmation embarquée Python pour pilotage, détection et lecture de codes-barres. Participation à la conception hardware et à l'architecture système.</div>
-            <div class="tl-tags"><span class="tag">ArduPilot</span><span class="tag">AirSim</span><span class="tag">Python</span><span class="tag">Drone</span></div>
-          </div>
-        </div>
-
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-date" data-fr="Sept. 2025–Jan. 2026" data-en="Sept 2025–Jan 2026">Sept. 2025–Jan. 2026</div>
-          <div class="tl-content">
-            <div class="tl-role" data-fr="CAP Projet — Véhicule Électrique Autonome" data-en="CAP Project — Autonomous EV">CAP Projet — Véhicule Électrique Autonome</div>
-            <div class="tl-org">ESIEA Paris</div>
-            <div class="tl-desc" data-fr="Refonte complète d'un véhicule thermique en électrique autonome : motorisation électrique, électronique embarquée, capteurs, architecture logicielle autonome (OpenPilot), design intérieur et intégration des systèmes de contrôle/communication." data-en="Full ICE-to-autonomous-electric conversion: electric drivetrain, embedded electronics, sensors, autonomous software architecture (OpenPilot), interior design, control/communication systems integration.">Refonte complète d'un véhicule thermique en électrique autonome : motorisation électrique, électronique embarquée, capteurs, architecture logicielle autonome (OpenPilot), design intérieur et intégration des systèmes de contrôle/communication.</div>
-            <div class="tl-tags"><span class="tag">OpenPilot</span><span class="tag">Embedded</span><span class="tag">EV</span></div>
-          </div>
-        </div>
-
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-date" data-fr="Avr–Juil. 2025" data-en="Apr–Jul 2025">Avr–Juil. 2025</div>
-          <div class="tl-content">
-            <div class="tl-role" data-fr="Stagiaire Ingénieur IA & Fullstack" data-en="AI & Fullstack Engineering Intern">Stagiaire Ingénieur IA & Fullstack</div>
-            <div class="tl-org">ESIEA Paris</div>
-            <div class="tl-desc" data-fr="Déploiement d'une solution complète de surveillance intelligente des ruches : intégration d'un modèle CNN via API Flask, infrastructure CI/CD (Docker, GitLab, Portainer), application mobile Flutter pour apiculteurs, application desktop cross-platform (Win/Mac/Linux), API REST MySQL live." data-en="Full beehive monitoring solution: CNN model via Flask API, CI/CD infrastructure (Docker, GitLab, Portainer), Flutter mobile app for beekeepers, cross-platform desktop app (Win/Mac/Linux), live MySQL REST API.">Déploiement d'une solution complète de surveillance intelligente des ruches : intégration d'un modèle CNN via API Flask, infrastructure CI/CD (Docker, GitLab, Portainer), application mobile Flutter pour apiculteurs, application desktop cross-platform (Win/Mac/Linux), API REST MySQL live.</div>
-            <div class="tl-tags"><span class="tag">CNN</span><span class="tag">Flask</span><span class="tag">Docker</span><span class="tag">Flutter</span></div>
-          </div>
-        </div>
-
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-date" data-fr="Jan.–Juin 2024" data-en="Jan–Jun 2024">Jan.–Juin 2024</div>
-          <div class="tl-content">
-            <div class="tl-role" data-fr="Semestre International" data-en="International Semester">Semestre International</div>
-            <div class="tl-org">Centria UAS · Kokkola, Finlande + KTU, Lituanie</div>
-            <div class="tl-desc" data-fr="Semestre à l'étranger en systèmes embarqués. Blended Intensive Program à la KTU (Kaunas, Lituanie) — développement d'un jeu 3D en équipe internationale pluridisciplinaire." data-en="Abroad semester in embedded systems. Blended Intensive Program at KTU (Kaunas, Lithuania) — 3D game development with an international, multidisciplinary team.">Semestre à l'étranger en systèmes embarqués. Blended Intensive Program à la KTU (Kaunas, Lituanie) — développement d'un jeu 3D en équipe internationale pluridisciplinaire.</div>
-          </div>
-        </div>
-
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-date" data-fr="2023–2026" data-en="2023–2026">2023–2026</div>
-          <div class="tl-content">
-            <div class="tl-role" data-fr="Ingénieur Systèmes Embarqués & Autonomes" data-en="Embedded & Autonomous Systems Engineer">Ingénieur Systèmes Embarqués & Autonomes</div>
-            <div class="tl-org">ESIEA Paris</div>
-            <div class="tl-desc" data-fr="Formation ingénieur 5 ans. Spécialisation FPGA, RTOS, systèmes autonomes, IA embarquée. Projets majeurs : drone d'inventaire autonome, conversion VE autonome, IP UART sur FPGA, surveillance IA de ruches." data-en="5-year engineering program. Specialization in FPGA, RTOS, autonomous systems, embedded AI. Major projects: autonomous inventory drone, autonomous EV conversion, FPGA UART IP, AI beehive monitoring.">Formation ingénieur 5 ans. Spécialisation FPGA, RTOS, systèmes autonomes, IA embarquée. Projets majeurs : drone d'inventaire autonome, conversion VE autonome, IP UART sur FPGA, surveillance IA de ruches.</div>
-          </div>
-        </div>
-
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-date" data-fr="Juil–Oct. 2021" data-en="Jul–Oct 2021">Juil–Oct. 2021</div>
-          <div class="tl-content">
-            <div class="tl-role" data-fr="Stagiaire Développement Logiciel" data-en="Software Development Intern">Stagiaire Développement Logiciel</div>
-            <div class="tl-org">ESTIM SA · Dakar, Sénégal</div>
-            <div class="tl-desc" data-fr="Développement d'un logiciel de gestion administrative et financière pour un projet haute sécurité. Stack : HTML, CSS, JS, PHP, PostgreSQL." data-en="Built administrative & financial management software for a high-security project. Stack: HTML, CSS, JS, PHP, PostgreSQL.">Développement d'un logiciel de gestion administrative et financière pour un projet haute sécurité. Stack : HTML, CSS, JS, PHP, PostgreSQL.</div>
-          </div>
-        </div>
-
-      </div>
+      <div class="timeline reveal" id="timelineList"></div>
     </div>
   </section>
 
@@ -545,16 +159,16 @@
   <section id="contact" class="section-pad">
     <div class="container">
       <div class="section-label" data-fr="Contact" data-en="Contact">Contact</div>
-      <h2 data-fr="Construisons quelque<br><em>chose ensemble.</em>" data-en="Let's build<br><em>something together.</em>">Construisons quelque<br><em>chose ensemble.</em></h2>
+      <h2 id="contactHeading"></h2>
       <div class="contact-grid reveal">
         <div>
-          <p class="contact-text" data-fr="Ouvert aux <strong style='color:var(--text)'>rôles techniques senior</strong>, projets clients à fort impact et partenariats stratégiques — en particulier en IA, systèmes embarqués et tech pour l'Afrique. <strong style='color:var(--text)'>CDI recherché à partir de septembre 2026.</strong>" data-en="Open to <strong style='color:var(--text)'>senior technical roles</strong>, high-impact client projects and strategic partnerships — particularly in AI, embedded systems and tech for Africa. <strong style='color:var(--text)'>Seeking permanent position from September 2026.</strong>">Ouvert aux <strong style="color:var(--text)">rôles techniques senior</strong>, projets clients à fort impact et partenariats stratégiques — en particulier en IA, systèmes embarqués et tech pour l'Afrique. <strong style="color:var(--text)">CDI recherché à partir de septembre 2026.</strong></p>
+          <p class="contact-text" id="contactText"></p>
           <br/>
           <div class="clinks">
-            <a href="mailto:imthiam@icloud.com" class="clink"><div class="clink-icon">✉️</div><div><div class="clink-label">Email</div><div class="clink-text">imthiam@icloud.com</div></div></a>
-            <a href="https://linkedin.com/in/imthiam" target="_blank" class="clink"><div class="clink-icon">💼</div><div><div class="clink-label">LinkedIn</div><div class="clink-text">linkedin.com/in/imthiam</div></div></a>
-            <a href="https://github.com/imthiam" target="_blank" class="clink"><div class="clink-icon">⌨️</div><div><div class="clink-label">GitHub</div><div class="clink-text">github.com/imthiam</div></div></a>
-            <a href="tel:+33768108540" class="clink"><div class="clink-icon">📱</div><div><div class="clink-label" data-fr="Téléphone" data-en="Phone">Téléphone</div><div class="clink-text">+33 7 68 10 85 40</div></div></a>
+            <a href="#" id="linkEmail" class="clink"><div class="clink-icon">✉️</div><div><div class="clink-label">Email</div><div class="clink-text"></div></div></a>
+            <a href="#" id="linkLinkedin" target="_blank" class="clink"><div class="clink-icon">💼</div><div><div class="clink-label">LinkedIn</div><div class="clink-text"></div></div></a>
+            <a href="#" id="linkGithub" target="_blank" class="clink"><div class="clink-icon">⌨️</div><div><div class="clink-label">GitHub</div><div class="clink-text"></div></div></a>
+            <a href="#" id="linkPhone" class="clink"><div class="clink-icon">📱</div><div><div class="clink-label" data-fr="Téléphone" data-en="Phone">Téléphone</div><div class="clink-text"></div></div></a>
           </div>
         </div>
         <div>
@@ -563,7 +177,7 @@
             <div class="fg"><label class="flabel">Email</label><input type="email" class="finput" id="fEmail" placeholder="jean@company.com" /></div>
             <div class="fg"><label class="flabel" data-fr="Sujet" data-en="Subject">Sujet</label><input type="text" class="finput" id="fSubject" data-ph-fr="Partenariat / Recrutement / Projet" data-ph-en="Partnership / Recruitment / Project" placeholder="Partenariat / Recrutement / Projet" /></div>
             <div class="fg"><label class="flabel">Message</label><textarea class="ftextarea" id="fMsg" data-ph-fr="Parlez-moi de votre projet ou opportunité..." data-ph-en="Tell me about your project or opportunity..." placeholder="Parlez-moi de votre projet ou opportunité..."></textarea></div>
-            <button class="btn-primary" style="width:100%;justify-content:center" onclick="submitForm()" id="sendBtn" data-fr="Envoyer →" data-en="Send →">Envoyer →</button>
+            <button class="btn-primary" style="width:100%;justify-content:center" id="sendBtn" data-fr="Envoyer →" data-en="Send →">Envoyer →</button>
           </div>
         </div>
       </div>
@@ -572,92 +186,9 @@
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-name">Mohamed Thiam</div>
-    <div class="footer-copy" data-fr="© 2026 · Ingénieur & Entrepreneur · Paris & Dakar" data-en="© 2026 · Engineer & Entrepreneur · Paris & Dakar">© 2026 · Ingénieur & Entrepreneur · Paris & Dakar</div>
-    <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--text3)" data-fr="Conçu avec précision." data-en="Built with precision.">Conçu avec précision.</div>
+    <div class="footer-name" id="footerName"></div>
+    <div class="footer-copy" id="footerCopy"></div>
+    <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--text3)" id="footerTagline"></div>
   </footer>
-
-  <script>
-  /* ── THEME ── */
-  const html = document.documentElement;
-  let theme = localStorage.getItem('mt-theme') || 'dark';
-
-  function setTheme(t) {
-    theme = t;
-    html.setAttribute('data-theme', t);
-    const icon = t === 'dark' ? '🌙' : '☀️';
-    document.getElementById('themeBtn').textContent = icon;
-    document.getElementById('mThemeBtn').textContent = icon;
-    localStorage.setItem('mt-theme', t);
-  }
-  function toggleTheme() { setTheme(theme === 'dark' ? 'light' : 'dark'); }
-  setTheme(theme);
-
-  /* ── LANGUAGE ── */
-  let lang = localStorage.getItem('mt-lang') || 'fr';
-
-  function setLang(l) {
-    lang = l;
-    localStorage.setItem('mt-lang', l);
-    html.setAttribute('lang', l);
-    document.getElementById('langBtn').textContent = l === 'fr' ? 'EN' : 'FR';
-    document.getElementById('mLangBtn').textContent = l === 'fr' ? 'EN' : 'FR';
-
-    // Translate content
-    document.querySelectorAll('[data-fr]').forEach(el => {
-      const val = el.getAttribute('data-' + l);
-      if (val) el.innerHTML = val;
-    });
-
-    // Translate placeholders
-    document.querySelectorAll('[data-ph-fr]').forEach(el => {
-      el.placeholder = el.getAttribute('data-ph-' + l) || '';
-    });
-  }
-  function toggleLang() { setLang(lang === 'fr' ? 'en' : 'fr'); }
-  setLang(lang);
-
-  /* ── MOBILE MENU ── */
-  function openMMenu() { document.getElementById('mobileMenu').classList.add('open'); }
-  function closeMMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
-
-  /* ── SCROLL REVEAL ── */
-  new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.07 }).observe
-    ? document.querySelectorAll('.reveal').forEach(el =>
-        new IntersectionObserver(entries => {
-          entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-        }, { threshold: 0.07 }).observe(el)
-      )
-    : document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
-
-  /* ── PROJECT FILTER ── */
-  document.querySelectorAll('.ftab').forEach(tab => {
-    tab.addEventListener('click', () => {
-      document.querySelectorAll('.ftab').forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      const f = tab.dataset.filter;
-      document.querySelectorAll('.pcard').forEach(c => {
-        c.style.display = (f === 'all' || (c.dataset.cat || '').includes(f)) ? '' : 'none';
-      });
-    });
-  });
-
-  /* ── CONTACT FORM ── */
-  function submitForm() {
-    const name = document.getElementById('fName').value.trim();
-    const email = document.getElementById('fEmail').value.trim();
-    const subject = document.getElementById('fSubject').value.trim();
-    const msg = document.getElementById('fMsg').value.trim();
-    if (!name || !email || !msg) {
-      alert(lang === 'fr' ? 'Merci de remplir le nom, l\'email et le message.' : 'Please fill in name, email and message.');
-      return;
-    }
-    const body = `From: ${name} (${email})\n\n${msg}`;
-    const subj = subject || (lang === 'fr' ? 'Contact Portfolio' : 'Portfolio Contact');
-    window.location.href = `mailto:imthiam@icloud.com?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;
-  }
-  </script>
 </body>
 </html>
