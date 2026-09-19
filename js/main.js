@@ -3,6 +3,7 @@
 
 import { renderAll } from './render.js';
 import { profile } from '../data/profile.js';
+import { initTimeline } from './timeline.js';
 
 const html = document.documentElement;
 let theme = localStorage.getItem('mt-theme') || 'dark';
@@ -131,6 +132,7 @@ export function initCore() {
   initReveal();
   initProjectFilter();
   initContactForm();
+  initTimeline();
 }
 
 initCore();

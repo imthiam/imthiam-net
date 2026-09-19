@@ -231,9 +231,11 @@ export function renderTimeline() {
   const list = document.getElementById('timelineList');
   if (!list) return;
   list.innerHTML = '';
-  profile.timeline.forEach((entry) => {
+  profile.timeline.forEach((entry, i) => {
     const item = document.createElement('div');
     item.className = 'tl-item';
+    item.dataset.cat = entry.category;
+    item.style.setProperty('--i', String(i));
 
     const dot = document.createElement('div');
     dot.className = entry.current ? 'tl-dot now' : 'tl-dot';

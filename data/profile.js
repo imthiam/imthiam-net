@@ -362,9 +362,12 @@ export const profile = {
     },
   ],
 
+  // Catégories utilisées par les filtres de la frise : 'experience' | 'formation' | 'international'.
+  // Ordre : du plus récent au plus ancien, comme aujourd'hui affiché.
   timeline: [
     {
       id: 'internship-2026',
+      category: 'experience',
       current: true,
       date: { fr: 'Mars–Sept. 2026', en: 'Mar–Sept 2026' },
       role: { fr: 'Stagiaire Ingénieur IoT — Stage de fin d\'études', en: 'IoT Engineering Intern — Final Internship' },
@@ -373,10 +376,13 @@ export const profile = {
         fr: 'Navigation autonome d\'un drone pour l\'inventaire automatisé par lecture de codes-barres. Développement logiciel & intégration matérielle, simulation de navigation via AirSim et ArduPilot Mission Planner, programmation embarquée Python pour pilotage, détection et lecture de codes-barres. Participation à la conception hardware et à l\'architecture système.',
         en: 'Autonomous drone navigation for automated barcode-based inventory. Software dev & hardware integration, AirSim + ArduPilot navigation simulation, embedded Python for piloting, detection and barcode reading. Participation in hardware design and system architecture.',
       },
+      // Confidentialité : ne jamais nommer l'entreprise (voir CONFIG.showCompanyName). Rester au
+      // niveau fonctionnel : pas de routes d'API, ports, identifiants, organisation d'équipe, etc.
       tags: ['ArduPilot', 'AirSim', 'Python', 'Drone'],
     },
     {
       id: 'cap-ve',
+      category: 'experience',
       date: { fr: 'Sept. 2025–Jan. 2026', en: 'Sept 2025–Jan 2026' },
       role: { fr: 'CAP Projet — Véhicule Électrique Autonome', en: 'CAP Project — Autonomous EV' },
       org: 'ESIEA Paris',
@@ -388,6 +394,7 @@ export const profile = {
     },
     {
       id: 'ruches',
+      category: 'experience',
       date: { fr: 'Avr–Juil. 2025', en: 'Apr–Jul 2025' },
       role: { fr: 'Stagiaire Ingénieur IA & Fullstack', en: 'AI & Fullstack Engineering Intern' },
       org: 'ESIEA Paris',
@@ -398,35 +405,87 @@ export const profile = {
       tags: ['CNN', 'Flask', 'Docker', 'Flutter'],
     },
     {
-      id: 'international-2024',
+      id: 'centria',
+      category: 'international',
       date: { fr: 'Jan.–Juin 2024', en: 'Jan–Jun 2024' },
-      role: { fr: 'Semestre International', en: 'International Semester' },
-      org: 'Centria UAS · Kokkola, Finlande + KTU, Lituanie',
+      role: { fr: 'Semestre d\'échange — Centria UAS', en: 'Exchange Semester — Centria UAS' },
+      org: 'Centria UAS · Kokkola, Finlande',
       desc: {
-        fr: 'Semestre à l\'étranger en systèmes embarqués. Blended Intensive Program à la KTU (Kaunas, Lituanie) — développement d\'un jeu 3D en équipe internationale pluridisciplinaire.',
-        en: 'Abroad semester in embedded systems. Blended Intensive Program at KTU (Kaunas, Lithuania) — 3D game development with an international, multidisciplinary team.',
+        fr: 'Cinq mois de semestre à l\'étranger en systèmes embarqués. C\'est là que j\'ai découvert l\'IoT et les systèmes embarqués.',
+        en: 'Five-month semester abroad in embedded systems. This is where I discovered IoT and embedded systems.',
+      },
+      tags: [],
+    },
+    {
+      id: 'ktu-bip',
+      category: 'international',
+      date: { fr: '2024', en: '2024' },
+      role: { fr: 'Blended Intensive Program — KTU', en: 'Blended Intensive Program — KTU' },
+      org: 'KTU · Kaunas, Lituanie',
+      desc: {
+        fr: 'Développement d\'un jeu vidéo 3D en équipe internationale pluridisciplinaire.',
+        en: '3D video game development with an international, multidisciplinary team.',
       },
       tags: [],
     },
     {
       id: 'esiea',
+      category: 'formation',
       date: { fr: '2023–2026', en: '2023–2026' },
       role: { fr: 'Ingénieur Systèmes Embarqués & Autonomes', en: 'Embedded & Autonomous Systems Engineer' },
       org: 'ESIEA Paris',
       desc: {
-        fr: 'Formation ingénieur 5 ans. Spécialisation FPGA, RTOS, systèmes autonomes, IA embarquée. Projets majeurs : drone d\'inventaire autonome, conversion VE autonome, IP UART sur FPGA, surveillance IA de ruches.',
-        en: '5-year engineering program. Specialization in FPGA, RTOS, autonomous systems, embedded AI. Major projects: autonomous inventory drone, autonomous EV conversion, FPGA UART IP, AI beehive monitoring.',
+        fr: 'Formation ingénieur 5 ans. Spécialisation FPGA, RTOS, systèmes autonomes, IA embarquée, avec une mineure en ingénierie d\'affaires en dernière année. Projets majeurs : drone d\'inventaire autonome, conversion VE autonome, IP UART sur FPGA, surveillance IA de ruches.',
+        en: '5-year engineering program. Specialization in FPGA, RTOS, autonomous systems, embedded AI, with a business engineering minor in the final year. Major projects: autonomous inventory drone, autonomous EV conversion, FPGA UART IP, AI beehive monitoring.',
       },
       tags: [],
     },
     {
       id: 'estim',
+      category: 'experience',
       date: { fr: 'Juil–Oct. 2021', en: 'Jul–Oct 2021' },
       role: { fr: 'Stagiaire Développement Logiciel', en: 'Software Development Intern' },
       org: 'ESTIM SA · Dakar, Sénégal',
       desc: {
         fr: 'Développement d\'un logiciel de gestion administrative et financière pour un projet haute sécurité. Stack : HTML, CSS, JS, PHP, PostgreSQL.',
         en: 'Built administrative & financial management software for a high-security project. Stack: HTML, CSS, JS, PHP, PostgreSQL.',
+      },
+      tags: [],
+    },
+    {
+      // TODO: établissement exact et dates du Bachelor IA à confirmer.
+      id: 'bachelor-ia',
+      category: 'formation',
+      date: { fr: 'Avant 2023', en: 'Before 2023' },
+      role: { fr: 'Bachelor Intelligence Artificielle', en: 'Bachelor in Artificial Intelligence' },
+      org: { fr: 'France · titre professionnel CDA', en: 'France · CDA professional title' },
+      desc: {
+        fr: 'Bachelor en Intelligence Artificielle, avec obtention du titre professionnel CDA (Concepteur Développeur d\'Applications).',
+        en: 'Bachelor in Artificial Intelligence, including the CDA professional title (application designer/developer).',
+      },
+      tags: [],
+    },
+    {
+      id: 'dut-esp',
+      category: 'formation',
+      date: { fr: 'Avant 2023', en: 'Before 2023' },
+      role: { fr: 'DUT Informatique', en: 'DUT in Computer Science' },
+      org: 'École Supérieure Polytechnique de Dakar (ESP Dakar)',
+      desc: {
+        fr: 'Diplôme Universitaire de Technologie en Informatique à l\'ESP Dakar.',
+        en: 'University Diploma of Technology in Computer Science at ESP Dakar.',
+      },
+      tags: [],
+    },
+    {
+      id: 'bac',
+      category: 'formation',
+      date: { fr: 'Avant 2023', en: 'Before 2023' },
+      role: { fr: 'Baccalauréat scientifique', en: 'Scientific Baccalaureate' },
+      org: { fr: 'Sénégal', en: 'Senegal' },
+      desc: {
+        fr: 'J\'ai découvert la programmation en C en terminale, dans un cours d\'informatique : le point de départ de ce parcours.',
+        en: 'I discovered C programming in my last year of high school, in a computer science class: the starting point of this path.',
       },
       tags: [],
     },

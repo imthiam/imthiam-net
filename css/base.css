@@ -154,9 +154,13 @@
     /* TIMELINE */
     #experience { background: var(--bg2); }
     .timeline { margin-top: 52px; position: relative; }
-    .timeline::before { content: ''; position: absolute; left: 20px; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, var(--accent), transparent); }
-    .tl-item { display: flex; gap: 36px; padding-bottom: 44px; padding-left: 56px; position: relative; }
-    .tl-dot { position: absolute; left: 13px; top: 5px; width: 15px; height: 15px; border-radius: 50%; border: 2px solid var(--accent); background: var(--bg2); }
+    .timeline-trace { position: absolute; left: 0; top: 0; z-index: 0; overflow: visible; pointer-events: none; }
+    .timeline-trace-path { fill: none; stroke: var(--accent); stroke-width: 1.5; opacity: 0.55; transition: stroke-dashoffset 0.1s linear; }
+    .timeline-trace-via { fill: var(--bg2); stroke: var(--accent); stroke-width: 1.5; opacity: 0.7; }
+    .timeline-trace-pulse { fill: var(--accent); filter: drop-shadow(0 0 6px var(--accent)); transition: opacity 0.3s ease; }
+    .tl-item { display: flex; gap: 36px; padding-bottom: 44px; padding-left: 56px; position: relative; z-index: 1; opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; transition-delay: calc(var(--i, 0) * 70ms); }
+    .timeline.visible .tl-item { opacity: 1; transform: translateY(0); }
+    .tl-dot { position: absolute; left: 13px; top: 5px; width: 15px; height: 15px; border-radius: 50%; border: 2px solid var(--accent); background: var(--bg2); z-index: 2; }
     .tl-dot.now { background: var(--accent); box-shadow: 0 0 0 4px var(--accent-dim); }
     .tl-date { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text3); white-space: nowrap; padding-top: 3px; min-width: 120px; }
     .tl-content { flex: 1; }
@@ -164,6 +168,9 @@
     .tl-org { font-size: 12px; color: var(--accent); font-family: 'DM Mono', monospace; margin: 3px 0 10px; }
     .tl-desc { font-size: 13px; color: var(--text2); line-height: 1.7; }
     .tl-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
+    @media (prefers-reduced-motion: reduce) {
+      .tl-item { transition-delay: 0s !important; }
+    }
 
     /* CONTACT */
     #contact { background: var(--bg); }
@@ -208,7 +215,6 @@
       .skills-grid { grid-template-columns: 1fr 1fr; }
       .contact-grid { grid-template-columns: 1fr; gap: 40px; }
       footer { padding: 20px; justify-content: center; text-align: center; }
-      .timeline::before { left: 7px; }
       .tl-item { padding-left: 32px; gap: 0; flex-direction: column; }
       .tl-dot { left: 0; }
     }
