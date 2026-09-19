@@ -127,6 +127,14 @@ function close() {
   }, 200);
 }
 
+function updateFooterWeight() {
+  const el = document.getElementById('footerWeight');
+  if (!el) return;
+  const lang = document.documentElement.lang === 'en' ? 'en' : 'fr';
+  const kb = formatKB(transferredBytes());
+  el.textContent = lang === 'fr' ? `Page : ${kb} transférés.` : `Page: ${kb} transferred.`;
+}
+
 export function initPerfPanel() {
   startObservers();
   document.getElementById('hoodBtn')?.addEventListener('click', open);
@@ -137,4 +145,11 @@ export function initPerfPanel() {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') close();
   });
+
+  if (document.readyState === 'complete') {
+    updateFooterWeight();
+  } else {
+    window.addEventListener('load', updateFooterWeight);
+  }
+  document.addEventListener('langchange', updateFooterWeight);
 }

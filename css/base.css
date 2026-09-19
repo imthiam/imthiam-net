@@ -328,6 +328,10 @@
     .footer-name { font-family: 'Syne', sans-serif; font-weight: 700; color: var(--text); font-size: 14px; }
     .footer-copy { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text3); }
     .footer-right { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+    .footer-tagline-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .footer-weight { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text3); }
+    .footer-source-link { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text3); text-decoration: none; }
+    .footer-source-link:hover { color: var(--accent); }
     .footer-hood-btn { background: none; border: none; color: var(--text3); font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.05em; cursor: pointer; padding: 0; }
     .footer-hood-btn:hover { color: var(--accent); }
     .hood-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 28px; }
