@@ -26,8 +26,8 @@ export const profile = {
     titleLine1: 'Mohamed',
     titleLine2: 'Thiam.',
     tagline: {
-      fr: 'Ingénieur Systèmes Embarqués et Autonomes, spécialisé IA embarquée',
-      en: 'Embedded & Autonomous Systems Engineer, specialized in embedded AI',
+      fr: 'Ingénieur Systèmes Embarqués et Autonomes, spécialisé IA embarquée & robotique',
+      en: 'Embedded & Autonomous Systems Engineer, specialized in embedded AI & robotics',
     },
     taglineSuffix: 'CEO · CTO · Builder',
     heroDesc: {
@@ -35,7 +35,7 @@ export const profile = {
       en: "I build <em>intelligent systems</em>: from embedded AI on drones and microcontrollers to full-stack platforms. CEO of <em>AskiaBot</em>, CTO at <em>Futuras Tech Solutions</em>. Between Paris and Dakar.",
     },
     stats: [
-      { value: '8', suffix: '', label: { fr: 'Projets livrés', en: 'Projects shipped' } },
+      { value: '9', suffix: '', label: { fr: 'Projets livrés', en: 'Projects shipped' } },
       { value: '3', suffix: '', label: { fr: 'Entreprises', en: 'Companies' } },
       { value: '5', suffix: '+', label: { fr: "Ans d'expérience", en: 'Years building' } },
       { value: '4', suffix: '', label: { fr: 'Pays', en: 'Countries' } },
@@ -95,8 +95,8 @@ export const profile = {
     },
     paragraphs: [
       {
-        fr: "Ingénieur diplômé de l'<strong>ESIEA Paris</strong> (promotion 2026), spécialisation Systèmes Embarqués et Autonomes, avec une mineure en ingénierie d'affaires en dernière année. J'ai découvert le langage C en terminale, durant mes cours d'informatique : le point de départ de ce parcours. Mon vrai apprentissage s'est fait en construisant des produits réels utilisés par de vraies personnes.",
-        en: "Engineering graduate of <strong>ESIEA Paris</strong> (class of 2026), Embedded & Autonomous Systems specialization, with a business engineering minor in the final year. I discovered the C language in my last year of high school, during my computer science classes: the starting point of this path. My real education happened building actual products used by real people.",
+        fr: "Ingénieur diplômé de l'<strong>ESIEA Paris</strong> (juin 2026), spécialisation Systèmes Embarqués et Autonomes, avec une mineure en ingénierie d'affaires en dernière année. Je développe en C depuis 2019. J'ai découvert le langage durant mes cours d'informatique en terminale : le point de départ de ce parcours. Mon vrai apprentissage s'est fait en construisant des produits réels utilisés par de vraies personnes.",
+        en: "Engineering graduate of <strong>ESIEA Paris</strong> (June 2026), Embedded & Autonomous Systems specialization, with a business engineering minor in the final year. I've been coding in C since 2019. I discovered the language in my last year of high school computer science classes: the starting point of this path. My real education happened building actual products used by real people.",
       },
       {
         fr: "De la navigation autonome de drones à la conception d'IPs UART sur FPGA, en passant par la conversion d'un véhicule électrique autonome et le déploiement de la première plateforme de télémédecine au Sénégal, j'opère à l'intersection de l'<strong>ingénierie embarquée profonde</strong> et de l'<strong>entrepreneuriat produit</strong>.",
@@ -107,8 +107,8 @@ export const profile = {
         en: 'International background: <strong>France, Senegal, Finland, Lithuania</strong>. That perspective shapes every project I lead.',
       },
       {
-        fr: 'Je recherche un <strong>CDI</strong> en systèmes embarqués, IA embarquée ou edge/cloud computing. Ouvert aussi aux collaborations et projets clients à fort impact, en particulier en IA, embarqué et tech pour l\'Afrique.',
-        en: 'I am looking for a <strong>permanent position</strong> in embedded systems, embedded AI, or edge/cloud computing. Also open to collaborations and high-impact client projects, particularly in AI, embedded systems and tech for Africa.',
+        fr: 'Diplômé, je suis <strong>disponible immédiatement</strong> pour un <strong>CDI</strong> en systèmes embarqués, IA embarquée ou edge/cloud computing. Ouvert aussi aux collaborations et projets clients à fort impact, en particulier en IA, embarqué et tech pour l\'Afrique.',
+        en: 'Graduated, I am <strong>immediately available</strong> for a <strong>permanent position</strong> in embedded systems, embedded AI, or edge/cloud computing. Also open to collaborations and high-impact client projects, particularly in AI, embedded systems and tech for Africa.',
       },
       {
         fr: "<strong>Au-delà du code</strong> : je joue au football et aux jeux vidéo, je m'intéresse à la fabrication physique et à l'industrie, et j'ai vécu et étudié dans quatre pays : France, Sénégal, Finlande, Lituanie.",
@@ -143,6 +143,7 @@ export const profile = {
         { label: 'Jetson Orin Nano' },
         { label: 'FreeRTOS' },
         { label: 'Zephyr' },
+        { label: { fr: 'Linux embarqué', en: 'Embedded Linux' } },
         { label: 'CAN / UART / SPI' },
         { label: 'IoT / MQTT' },
         { label: 'BLE' },
@@ -157,17 +158,22 @@ export const profile = {
       icon: '🚁',
       title: { fr: 'Drones & Autonomie', en: 'Drones & Autonomy' },
       pills: [
+        { label: 'ROS 2', featured: true },
         { label: 'ArduPilot', featured: true },
         { label: 'AirSim', featured: true },
         { label: 'Mission Planner', featured: true },
         { label: 'OpenPilot' },
+        { label: 'SLAM' },
+        { label: 'LiDAR' },
+        { label: { fr: 'Flux optique', en: 'Optical flow' } },
         { label: { fr: 'Navigation autonome', en: 'Autonomous navigation' } },
         { label: { fr: 'Navigation intérieure sans GPS', en: 'Indoor GPS-denied navigation' } },
         { label: { fr: 'Détection de codes-barres', en: 'Barcode detection' } },
+        { label: 'Unity (C#)' },
       ],
       context: {
-        fr: 'Utilisé sur : drone d\'inventaire autonome (stage de fin d\'études).',
-        en: 'Used on: autonomous inventory drone (final internship).',
+        fr: 'Utilisé sur : drone d\'inventaire autonome (stage de fin d\'études), robot mobile autonome.',
+        en: 'Used on: autonomous inventory drone (final internship), autonomous mobile robot.',
       },
     },
     {
@@ -199,8 +205,10 @@ export const profile = {
         { label: 'Next.js' },
         { label: 'TypeScript' },
         { label: 'C / C++' },
+        { label: 'C#' },
         { label: 'Java' },
         { label: 'Firebase' },
+        { label: 'MySQL' },
         { label: 'REST APIs' },
       ],
       context: {
@@ -241,12 +249,14 @@ export const profile = {
     },
     {
       icon: '🌍',
-      title: { fr: 'Langues', en: 'Languages' },
+      title: { fr: 'Langues & Certifications', en: 'Languages & Certifications' },
       pills: [
         { label: { fr: 'Français (natif)', en: 'French (native)' }, featured: true },
         { label: 'Anglais · TOEIC 880', featured: true },
         { label: { fr: 'Espagnol (B1)', en: 'Spanish (B1)' } },
         { label: { fr: 'Finnois (A1)', en: 'Finnish (A1)' } },
+        { label: { fr: 'IBM AI Developer (2025)', en: 'IBM AI Developer (2025)' }, featured: true },
+        { label: { fr: 'Batteries and Electric Vehicles (2025)', en: 'Batteries and Electric Vehicles (2025)' } },
       ],
       context: {
         fr: 'À l\'aise dans les contextes français et sénégalais.',
@@ -264,18 +274,18 @@ export const profile = {
       gradient: 'rgba(0,229,160,0.12)',
       title: { fr: "Drone d'inventaire autonome", en: 'Autonomous Inventory Drone' },
       desc: {
-        fr: 'Navigation autonome par codes-barres pour inventaire automatisé en entrepôt. Simulation AirSim + ArduPilot Mission Planner, programmation embarquée Python, intégration hardware & architecture système complète.',
-        en: 'Autonomous barcode navigation for automated warehouse inventory. AirSim + ArduPilot simulation, embedded Python programming, full hardware integration & system architecture.',
+        fr: 'Navigation autonome par codes-barres pour inventaire automatisé en entrepôt. ROS 2 avec LiDAR et capteur de flux optique, simulation AirSim + ArduPilot Mission Planner, programmation embarquée Python/C++, intégration hardware & architecture système complète.',
+        en: 'Autonomous barcode navigation for automated warehouse inventory. ROS 2 with LiDAR and optical flow sensor, AirSim + ArduPilot simulation, embedded Python/C++ programming, full hardware integration & system architecture.',
       },
-      stack: ['ArduPilot', 'AirSim', 'Python', 'Computer Vision'],
+      stack: ['ROS 2', 'ArduPilot', 'AirSim', 'LiDAR', 'Python', 'C++'],
       detail: {
         context: {
           fr: "Stage de fin d'études (mars–septembre 2026) chez un éditeur de logiciels de gestion logistique et d'entrepôt (nom non communiqué). Système de drone d'intérieur autonome pour l'inventaire d'entrepôt, à l'interface de l'embarqué, de la robotique, de l'IA et du logiciel.",
           en: "Final internship (March–September 2026) at a warehouse and logistics management software company (name withheld). Autonomous indoor drone system for warehouse inventory, at the intersection of embedded systems, robotics, AI and software.",
         },
         role: {
-          fr: "Navigation et stabilisation en intérieur sans GPS, appairage BLE vers Wi-Fi et configuration réseau, logique d'inventaire et persistance des données, intégration avec le backend et le moteur 3D pour l'exécution des plans de vol, simulation de navigation (AirSim, ArduPilot Mission Planner), détection et lecture de codes-barres en Python.",
-          en: "Indoor GPS-denied navigation and stabilization, BLE-to-Wi-Fi pairing and network configuration, inventory logic and data persistence, backend and 3D engine integration for flight plan execution, navigation simulation (AirSim, ArduPilot Mission Planner), Python barcode detection and reading.",
+          fr: "Pilotage, navigation autonome et détection/lecture de codes-barres en Python et C++. Intégration sous ROS 2 d'un LiDAR et d'un capteur de flux optique pour la perception et la navigation en intérieur sans GPS. Simulation et validation des missions avec AirSim, ArduPilot/Mission Planner et des environnements 3D sous Unity (C#). Participation à la conception hardware, à l'intégration matérielle et à l'architecture système du drone.",
+          en: "Piloting, autonomous navigation and barcode detection/reading in Python and C++. ROS 2 integration of a LiDAR and an optical flow sensor for indoor GPS-denied perception and navigation. Mission simulation and validation with AirSim, ArduPilot/Mission Planner and 3D environments built in Unity (C#). Contributed to hardware design, hardware integration and system architecture.",
         },
         challenges: {
           fr: "Navigation autonome en intérieur sans signal GPS, en travaillant à l'interface de plusieurs disciplines : embarqué, robotique, IA et logiciel.",
@@ -394,6 +404,34 @@ export const profile = {
       },
     },
     {
+      slug: 'robot-mobile-autonome',
+      cat: ['embedded'],
+      icon: '🤖',
+      typeLabel: { fr: 'Robotique', en: 'Robotics' },
+      gradient: 'rgba(0,212,255,0.08)',
+      title: { fr: 'Robot mobile autonome', en: 'Autonomous Mobile Robot' },
+      desc: {
+        fr: 'Robot mobile autonome : navigation par capteurs et optimisation de trajectoire.',
+        en: 'Autonomous mobile robot: sensor-based navigation and trajectory optimization.',
+      },
+      stack: ['Robotics', 'Sensors', 'Navigation'],
+      detail: {
+        context: {
+          fr: 'Projet ESIEA (janvier 2025) : robot mobile autonome, navigation par capteurs et optimisation de trajectoire.',
+          en: 'ESIEA project (January 2025): autonomous mobile robot, sensor-based navigation and trajectory optimization.',
+        },
+        role: {
+          fr: 'Conception et développement du système de navigation par capteurs et de l\'algorithme d\'optimisation de trajectoire.',
+          en: 'Design and development of the sensor-based navigation system and trajectory optimization algorithm.',
+        },
+        challenges: {
+          fr: 'Faire naviguer le robot de façon fiable à partir des seules données capteurs, tout en optimisant la trajectoire parcourue.',
+          en: 'Reliably navigating the robot from sensor data alone, while optimizing the path traveled.',
+        },
+        result: { fr: 'TODO : résultat chiffré à confirmer.', en: 'TODO: measurable outcome to confirm.' },
+      },
+    },
+    {
       slug: 'zenpayme',
       cat: ['mobile', 'product'],
       icon: '💸',
@@ -476,17 +514,16 @@ export const profile = {
     {
       id: 'internship-2026',
       category: 'experience',
-      current: true,
       date: { fr: 'Mars–Sept. 2026', en: 'Mar–Sept 2026' },
-      role: { fr: 'Stagiaire Ingénieur IoT · Stage de fin d\'études', en: 'IoT Engineering Intern · Final Internship' },
+      role: { fr: 'Stagiaire Ingénieur IoT et Robotique · Stage de fin d\'études', en: 'IoT & Robotics Engineering Intern · Final Internship' },
       org: { fr: 'Île-de-France, France', en: 'Île-de-France, France' },
       desc: {
-        fr: 'Navigation autonome d\'un drone pour l\'inventaire automatisé par lecture de codes-barres. Développement logiciel & intégration matérielle, simulation de navigation via AirSim et ArduPilot Mission Planner, programmation embarquée Python pour pilotage, détection et lecture de codes-barres. Participation à la conception hardware et à l\'architecture système.',
-        en: 'Autonomous drone navigation for automated barcode-based inventory. Software dev & hardware integration, AirSim + ArduPilot navigation simulation, embedded Python for piloting, detection and barcode reading. Participation in hardware design and system architecture.',
+        fr: 'Navigation autonome d\'un drone pour l\'inventaire automatisé par lecture de codes-barres. Intégration sous ROS 2 d\'un LiDAR et d\'un capteur de flux optique pour la perception et la navigation en intérieur, développement logiciel & intégration matérielle, simulation via AirSim, ArduPilot/Mission Planner et Unity (C#), programmation embarquée Python/C++ pour pilotage, détection et lecture de codes-barres. Participation à la conception hardware et à l\'architecture système.',
+        en: 'Autonomous drone navigation for automated barcode-based inventory. ROS 2 integration of a LiDAR and an optical flow sensor for indoor perception and navigation, software dev & hardware integration, simulation via AirSim, ArduPilot/Mission Planner and Unity (C#), embedded Python/C++ for piloting, detection and barcode reading. Participation in hardware design and system architecture.',
       },
       // Confidentialité : ne jamais nommer l'entreprise (voir CONFIG.showCompanyName). Rester au
       // niveau fonctionnel : pas de routes d'API, ports, identifiants, organisation d'équipe, etc.
-      tags: ['ArduPilot', 'AirSim', 'Python', 'Drone'],
+      tags: ['ROS 2', 'ArduPilot', 'AirSim', 'LiDAR', 'Drone'],
     },
     {
       id: 'cap-ve',
@@ -543,8 +580,8 @@ export const profile = {
       role: { fr: 'Ingénieur Systèmes Embarqués & Autonomes', en: 'Embedded & Autonomous Systems Engineer' },
       org: 'ESIEA Paris',
       desc: {
-        fr: 'Formation ingénieur 5 ans. Spécialisation FPGA, RTOS, systèmes autonomes, IA embarquée, avec une mineure en ingénierie d\'affaires en dernière année. Projets majeurs : drone d\'inventaire autonome, conversion VE autonome, IP UART sur FPGA, surveillance IA de ruches.',
-        en: '5-year engineering program. Specialization in FPGA, RTOS, autonomous systems, embedded AI, with a business engineering minor in the final year. Major projects: autonomous inventory drone, autonomous EV conversion, FPGA UART IP, AI beehive monitoring.',
+        fr: 'Formation ingénieur 5 ans. Spécialisation FPGA, RTOS, systèmes autonomes, IA embarquée, avec une mineure en ingénierie d\'affaires en dernière année. Projets majeurs : drone d\'inventaire autonome, conversion VE autonome, robot mobile autonome, IP UART sur FPGA, surveillance IA de ruches.',
+        en: '5-year engineering program. Specialization in FPGA, RTOS, autonomous systems, embedded AI, with a business engineering minor in the final year. Major projects: autonomous inventory drone, autonomous EV conversion, autonomous mobile robot, FPGA UART IP, AI beehive monitoring.',
       },
       tags: [],
     },
@@ -561,12 +598,11 @@ export const profile = {
       tags: [],
     },
     {
-      // TODO: établissement exact et dates du Bachelor IA à confirmer.
       id: 'bachelor-ia',
       category: 'formation',
-      date: { fr: 'Avant 2023', en: 'Before 2023' },
+      date: { fr: '2022–2023', en: '2022–2023' },
       role: { fr: 'Bachelor Intelligence Artificielle', en: 'Bachelor in Artificial Intelligence' },
-      org: { fr: 'France · titre professionnel CDA', en: 'France · CDA professional title' },
+      org: { fr: 'EPSI, Paris · titre professionnel CDA', en: 'EPSI, Paris · CDA professional title' },
       desc: {
         fr: 'Bachelor en Intelligence Artificielle, avec obtention du titre professionnel CDA (Concepteur Développeur d\'Applications).',
         en: 'Bachelor in Artificial Intelligence, including the CDA professional title (application designer/developer).',
@@ -576,7 +612,7 @@ export const profile = {
     {
       id: 'dut-esp',
       category: 'formation',
-      date: { fr: 'Avant 2023', en: 'Before 2023' },
+      date: { fr: '2019–2022', en: '2019–2022' },
       role: { fr: 'DUT Informatique', en: 'DUT in Computer Science' },
       org: 'École Supérieure Polytechnique de Dakar (ESP Dakar)',
       desc: {
